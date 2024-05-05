@@ -31,7 +31,8 @@ export const createOrder = (order) => async (dispatch, getState) => {
     };
     const { data } = await axios.post(
       `${process.env.REACT_APP_API}/api/v1/order/new`,
-      order
+      order,
+      config
     );
     dispatch({
       type: CREATE_ORDER_SUCCESS,
