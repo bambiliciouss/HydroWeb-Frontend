@@ -101,15 +101,15 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon, point } from "leaflet";
 import { useDispatch, useSelector } from "react-redux";
-// import { allStoreBranch } from "actions/storebranchActions";
+import { allStoreBranch } from "actions/storebranchActions";
 
 const Home = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  // const { storeBranch } = useSelector((state) => state.allStoreBranch);
+  const { storeBranch } = useSelector((state) => state.allStoreBranch);
 
   React.useEffect(() => {
-    // dispatch(allStoreBranch());
+    dispatch(allStoreBranch());
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
 
@@ -206,23 +206,39 @@ const Home = () => {
           </Container>
         </section>
 
+        <br />
+        <br />
+        <br />
+
         <section className="section section-lg section-nucleo-icons pb-250">
-         
+          <Container>
+            <Row className="justify-content-center">
+              <Col className="text-center" lg="8">
+                <h2 className="display-3 text-info">About Us</h2>
+                <p className="lead">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+
+        <section className="section section-lg section-nucleo-icons pb-250">
           <Container>
             <Row className="justify-content-between align-items-center">
               <Col className="mb-5 mb-lg-0" lg="5">
                 <p className="lead text-black mt-4">
                   <h2 className="display-3 text-info">Our Services</h2>
-                  <p className="lead">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                  </p>
+                  {storeBranch.map((storeBranches) => (
+                    <p className="lead">{storeBranches.branch}</p>
+                  ))}
                 </p>
               </Col>
               <Col className="mb-lg-auto" lg="6">
