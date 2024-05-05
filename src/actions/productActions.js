@@ -67,7 +67,8 @@ export const allProductList = (id) => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_API}/api/v1/admin/all/product/store/${id}`
+      `${process.env.REACT_APP_API}/api/v1/admin/all/product/store/${id}`,
+      { withCredentials: true }
     );
     dispatch({
       type: ALL_PRODUCT_SUCCESS,
@@ -86,7 +87,8 @@ export const allProductStockLogs = (id) => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCTSTOCKLOG_REQUEST });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_API}/api/v1/admin/product/stocklogs/${id}`
+      `${process.env.REACT_APP_API}/api/v1/admin/product/stocklogs/${id}`,
+      { withCredentials: true }
     );
     dispatch({
       type: ALL_PRODUCTSTOCKLOG_SUCCESS,
