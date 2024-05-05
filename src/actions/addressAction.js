@@ -196,16 +196,9 @@ export const clearErrors = () => async (dispatch) => {
 export const setDefaultAddress = (id) => async (dispatch) => {
   try {
     dispatch({ type: SET_ADDRESS_REQUEST });
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    };
-
     const { data } = await axios.put(
       `${process.env.REACT_APP_API}/api/v1/me/setdefault/address/${id}`,
-      config
+      { withCredentials: true }
     );
     dispatch({
       type: SET_ADDRESS_SUCCESS,
