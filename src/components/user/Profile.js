@@ -150,7 +150,6 @@ const Profile = () => {
         }
       }
 
-
       const EditinitializeMap = () => {
         if (editmapRef.current) {
           const editsearchControl = new GeoSearchControl({
@@ -194,6 +193,7 @@ const Profile = () => {
       dispatch({ type: DELETE_ADDRESS_RESET });
     }
     if (isDefault) {
+      swal("Set Default Address Sucessfully", "", "success");
       navigate("/my-profile");
       dispatch({ type: SET_ADDRESS_RESET });
     }
@@ -280,7 +280,6 @@ const Profile = () => {
 
   const setDefAddress = (id) => {
     dispatch(setDefaultAddress(id));
-    swal("Set Default Address Sucessfully", "", "success");
   };
 
   const setAddresses = () => {
