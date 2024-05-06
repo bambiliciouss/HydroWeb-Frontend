@@ -123,7 +123,7 @@ const OrderDetails = () => {
     formData.set("orderLevel", orderLevelup);
 
     dispatch(updateOrder(id, formData));
-    toggle();
+    // toggle();
     // window.location.reload();
   };
   const handleSubmit = async (data) => {
