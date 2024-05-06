@@ -50,8 +50,6 @@ const Cart = () => {
     dispatch(addProductToCart(id, newQty));
   };
 
-
-
   const removeCartItemHandler = (id) => {
     console.log(id);
     dispatch(removeItemFromCart(id));
@@ -239,8 +237,7 @@ const Cart = () => {
                                     <div className="col-3">
                                       <span className="item-type">
                                         {itemP.type.typeofGallon} (NEW
-                                        CONTAINER) Total Stocks:{" "}
-                                      
+                                        CONTAINER)
                                       </span>
                                     </div>
 
@@ -338,13 +335,19 @@ const Cart = () => {
                               </p>
 
                               <hr />
-
-                              <button
-                                id="checkout_btn"
-                                className="btn btn-primary btn-block"
-                                onClick={checkoutHandler}>
-                                Check out
-                              </button>
+                              {cartProductItems.map((itemP) => (
+                                <button
+                                  id="checkout_btn"
+                                  className="btn btn-primary btn-block"
+                                  onClick={checkoutHandler}
+                                  disabled={
+                                    itemP.type.typeofGallon.indexOf(
+                                      "GALLON"
+                                    ) === -1 && itemP.quantity < 25
+                                  }>
+                                  Check out
+                                </button>
+                              ))}
                             </div>
                           </div>
                         </div>
