@@ -144,7 +144,7 @@ const UpdateUser = () => {
     if (isUpdated) {
       swal("Updated Successfully!", "", "success");
 
-      navigate("/userlist", { replace: true });
+      navigate(`/userlist/${id}`, { replace: true });
       dispatch({
         type: UPDATE_PROFILE_RESET,
       });

@@ -143,7 +143,7 @@ const UpdateRider = () => {
     if (isUpdated) {
       swal("Updated Successfully!", "", "success");
 
-      navigate("/riderlist", { replace: true });
+      navigate(`/riderlist/${id}`, { replace: true });
       dispatch({
         type: UPDATE_PROFILE_RESET,
       });
