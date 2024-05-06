@@ -50,6 +50,15 @@ const Cart = () => {
     dispatch(addProductToCart(id, newQty));
   };
 
+  const updateQuantity = (product, newQuantity) => {
+    newQuantity = parseInt(newQuantity);
+    if (!Number.isInteger(newQuantity) || newQuantity < 1) {
+      console.error("Invalid quantity");
+      return;
+    }
+    dispatch(addProductToCart(product, newQty));
+  };
+
   const removeCartItemHandler = (id) => {
     console.log(id);
     dispatch(removeItemFromCart(id));
@@ -76,21 +85,6 @@ const Cart = () => {
     setCheckoutDisabled(shouldDisableCheckout);
   }, [cartProductItems]);
 
-  const updateQuantity = (productId, newQuantity) => {
-    // Find the product in the cart based on its ID
-    const updatedCartItems = cartProductItems.map((itemP) => {
-      if (itemP.product === productId) {
-        // If the product ID matches, update its quantity
-        return {
-          ...itemP,
-          quantity: newQuantity,
-        };
-      }
-      return itemP;
-    });
-    // Update the cart with the new quantity for the product
-    setCartProductItems(updatedCartItems);
-  };
   return (
     <Fragment>
       <AuthNavbar />
@@ -305,7 +299,7 @@ const Cart = () => {
                                         onChange={(e) =>
                                           updateQuantity(
                                             itemP.product,
-                                            parseInt(e.target.value)
+                                            e.target.value
                                           )
                                         }
                                       />
