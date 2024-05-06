@@ -280,7 +280,7 @@ const Cart = () => {
                                         ₱{itemP.price}.00
                                       </span>
                                     </div>
-                                    <div className="col-4 d-flex align-items-center justify-content-between">
+                                    <div className="col-4">
                                       <button
                                         className="btn btn-danger"
                                         onClick={() =>
