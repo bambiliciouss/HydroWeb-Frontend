@@ -112,8 +112,8 @@ const Register = () => {
     if (isAuthenticated) {
       swal("An email sent to your Email account, please verify", "", "success");
 
-      navigate("/");
-      // window.location.reload();
+      // navigate("/");
+      window.location.reload();
     }
 
     if (error) {
