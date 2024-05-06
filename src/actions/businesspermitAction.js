@@ -34,7 +34,7 @@ export const createBusinessPermit =
         withCredentials: true,
       };
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/create/businesspermit/record//${id}`,
+        `${process.env.REACT_APP_API}/api/v1/create/businesspermit/record/${id}`,
         businesspermit,
         config
       );
