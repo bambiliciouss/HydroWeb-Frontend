@@ -51,6 +51,8 @@ const UpdateOrderDetails = () => {
     order = {},
   } = useSelector((state) => state.orderDetails);
 
+  const { isUpdated } = useSelector((state) => state.order);
+
   const {
     orderItems,
     orderProducts,
@@ -83,6 +85,8 @@ const UpdateOrderDetails = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
+
+    
   }, [dispatch, alert, error, id]);
 
   useEffect(() => {
@@ -97,13 +101,20 @@ const UpdateOrderDetails = () => {
     console.log("RIDERS", users);
   }, [users]);
 
+  useEffect(() => {
+    if (isUpdated) {
+      swal("Order Status", "", "success");
+      toggle();
+    }
+  }, [isUpdated]);
+
   const updateOrderHandler = async (id) => {
     const formData = new FormData();
 
     formData.set("orderLevel", orderLevelup);
     socket.emit("updateOrder", { id, orderLevelup });
     dispatch(updateOrder(id, formData));
-    toggle();
+    // toggle();
     // window.location.reload();
   };
 
