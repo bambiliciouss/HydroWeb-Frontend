@@ -43,6 +43,7 @@ import {
 import * as htmlToImage from "html-to-image";
 import QRCode from "react-qr-code";
 import { getAllStaff, getSingleBranchUsers } from "../../actions/adminAction";
+import { getStoreDetails } from "actions/storebranchActions";
 const UserList = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -115,6 +116,7 @@ const UserList = () => {
     dispatch(allUsers());
     dispatch(allAdminStoreBranch());
     dispatch(getSingleBranchUsers(id));
+    dispatch(getStoreDetails(id));
 
     if (isDeleted) {
       navigate("/userlist");
@@ -251,7 +253,9 @@ const UserList = () => {
             <CardHeader className="bg-white border-0">
               <Row className="align-items-center">
                 <Col xs="8">
-                  <h3 className="mb-0">List of Customers ( {storeBranch.branch} )</h3>
+                  <h3 className="mb-0">
+                    List of Customers ( {storeBranch.branch} )
+                  </h3>
                 </Col>
               </Row>
             </CardHeader>
