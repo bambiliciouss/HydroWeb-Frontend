@@ -1,5 +1,4 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 import {
   CREATE_ADDRESS_REQUEST,
   CREATE_ADDRESS_SUCCESS,
@@ -196,22 +195,12 @@ export const clearErrors = () => async (dispatch) => {
 
 export const setDefaultAddress = (id, userID) => async (dispatch) => {
   console.log("Address Id", id);
-  console.log("User Id", userID);
-  const token = Cookies.get("token");
-
-  console.log("TOKEN", token);
+  console.log("Address Id", userID);
   try {
     dispatch({ type: SET_ADDRESS_REQUEST });
-
     const { data } = await axios.post(
       `${process.env.REACT_APP_API}/api/v1/me/setdefault/address/${id}`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      }
+      { withCredentials: true }
     );
     dispatch({
       type: SET_ADDRESS_SUCCESS,
