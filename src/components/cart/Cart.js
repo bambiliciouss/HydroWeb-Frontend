@@ -73,7 +73,7 @@ const Cart = () => {
     const shouldDisableCheckout = cartProductItems.some(
       (itemP) => !/Gallon/i.test(itemP.type.typeofGallon) && itemP.quantity < 25
     );
-    setCheckoutDisabled(true);
+    setCheckoutDisabled(shouldDisableCheckout);
   }, [cartProductItems]);
 
   return (
