@@ -278,8 +278,8 @@ const Profile = () => {
     toggleEditModal();
   };
 
-  const setDefAddress = (id) => {
-    dispatch(setDefaultAddress(id));
+  const setDefAddress = (id, userID) => {
+    dispatch(setDefaultAddress(id, userID));
   };
 
   const setAddresses = () => {
@@ -328,7 +328,7 @@ const Profile = () => {
             <Badge
               color={useraddresses.isDefault ? "success" : "secondary"}
               // href=""
-              onClick={() => setDefAddress(useraddresses._id)}
+              onClick={() => setDefAddress(useraddresses._id, user._id)}
               style={{ cursor: "pointer" }}>
               {useraddresses.isDefault ? "Default" : "Default"}
             </Badge>
