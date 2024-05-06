@@ -96,14 +96,14 @@ const UpdateOrderDetails = () => {
     console.log("RIDERS", users);
   }, [users]);
 
-  const updateOrderHandler = (id) => {
+  const updateOrderHandler = (id, data) => {
     const formData = new FormData();
 
-    formData.set("orderLevel", orderLevelup);
+    formData.set("orderLevel", data.orderLevelup);
     socket.emit("updateOrder", { id, orderLevelup });
     dispatch(updateOrder(id, formData));
     toggle();
-    window.location.reload();
+    // window.location.reload();
   };
 
   const assignHandler = (id) => {
