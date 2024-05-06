@@ -227,7 +227,7 @@ const UpdatePhysicalChemTest = () => {
                               className="my-4 mr-4"
                               color="secondary"
                               onClick={() =>
-                                navigate(`/store/physicalchemtest/${storeId}`)
+                                navigate(`create/store/physicalchemtest/${storeId}`)
                               }>
                               Back
                             </Button>
