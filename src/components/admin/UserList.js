@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState, useRef } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { allUsers, deleteUser } from "actions/userActions";
 import { MDBDataTable } from "mdbreact";
@@ -42,12 +42,15 @@ import {
 } from "reactstrap";
 import * as htmlToImage from "html-to-image";
 import QRCode from "react-qr-code";
+import { getAllStaff, getSingleBranchUsers } from "../../actions/adminAction";
 const UserList = () => {
   const dispatch = useDispatch();
+  const { id } = useParams();
+  const { users } = useSelector((state) => state.adminStoreCustomer);
 
   let navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-  const { loading, error, users } = useSelector((state) => state.allUsers);
+
   const { isDeleted } = useSelector((state) => state.user);
 
   const deleteUserHandler = (id) => {
@@ -111,6 +114,7 @@ const UserList = () => {
   useEffect(() => {
     dispatch(allUsers());
     dispatch(allAdminStoreBranch());
+    dispatch(getSingleBranchUsers(id));
 
     if (isDeleted) {
       navigate("/userlist");

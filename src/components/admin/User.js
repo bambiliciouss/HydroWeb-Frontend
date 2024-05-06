@@ -94,7 +94,7 @@ const User = (args) => {
           <Fragment>
             <button
               className="btn btn-primary py-1 px-2 ml-2"
-              onClick={() => navigate(`/riderlist/${storeBranches._id}`)}>
+              onClick={() => navigate(`/userlist/${storeBranches._id}`)}>
               View Record
             </button>
           </Fragment>

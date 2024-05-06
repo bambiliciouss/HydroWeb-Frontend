@@ -136,7 +136,7 @@ function App() {
         
         {/* ADMIN */}
         <Route path="/dashboard" element={ <ProtectedRoute><Dashboard /></ProtectedRoute>} exact="true" />
-        <Route path="/userlist" element={<ProtectedRoute><UserList /></ProtectedRoute>} exact="true" />
+        <Route path="/userlist/:id" element={<ProtectedRoute><UserList /></ProtectedRoute>} exact="true" />
         <Route path="/riderlist/:id" element={<ProtectedRoute><RiderList /></ProtectedRoute>} exact="true" />
         <Route path="/employeelist/:id" element={<ProtectedRoute><EmployeeList /></ProtectedRoute>} exact="true" />
         <Route path="/gallonlist" element={<ProtectedRoute><GallonList /></ProtectedRoute>} exact="true" />
