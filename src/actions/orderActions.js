@@ -171,7 +171,7 @@ export const updateOrderwithRider = (id, orderData) => async (dispatch) => {
       },
       withCredentials: true,
     };
-    const { data } = await axios.put(
+    const { data } = await axios.post(
       `${process.env.REACT_APP_API}/api/v1/order/assign/rider/${id}`,
       orderData,
       config
