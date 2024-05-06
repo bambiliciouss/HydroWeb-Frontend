@@ -254,22 +254,6 @@ const UserList = () => {
                   <h3 className="mb-0">List of Customer(s)</h3>
                 </Col>
               </Row>
-              <Row className="align-items-center">
-                <Button
-                //  onClick={() => allordersButton()}
-                >
-                  <h3 className="mb-0">All Customers</h3>
-                </Button>
-                {storeBranch.map((storeBranches) => (
-                  <Button
-                    key={storeBranches._id} // Assuming storeBranches has a unique identifier like _id
-                    id={`button-${storeBranches._id}`} // Unique id for each button
-                    // onClick={() => handleButtonClick(storeBranches._id)} // Replace with your click handler
-                  >
-                    <h3 className="mb-0">{storeBranches.branch}</h3>
-                  </Button>
-                ))}
-              </Row>
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
