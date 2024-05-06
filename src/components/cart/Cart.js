@@ -76,6 +76,21 @@ const Cart = () => {
     setCheckoutDisabled(shouldDisableCheckout);
   }, [cartProductItems]);
 
+  const updateQuantity = (productId, newQuantity) => {
+    // Find the product in the cart based on its ID
+    const updatedCartItems = cartProductItems.map((itemP) => {
+      if (itemP.product === productId) {
+        // If the product ID matches, update its quantity
+        return {
+          ...itemP,
+          quantity: newQuantity,
+        };
+      }
+      return itemP;
+    });
+    // Update the cart with the new quantity for the product
+    setCartProductItems(updatedCartItems);
+  };
   return (
     <Fragment>
       <AuthNavbar />
