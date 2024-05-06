@@ -37,6 +37,7 @@ import AdminNavbar from "components/Navbars/AdminNavbar";
 import Header2 from "components/Headers/Header2";
 import { allRider, allUsers, deleteUser } from "actions/userActions";
 import socket from "../../socket";
+import swal from "sweetalert";
 const UpdateOrderDetails = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
