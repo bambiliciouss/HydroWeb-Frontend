@@ -202,7 +202,7 @@ export const setDefaultAddress = (id) => async (dispatch) => {
     );
     dispatch({
       type: SET_ADDRESS_SUCCESS,
-      payload: data.user,
+      payload: data.success,
     });
     console.log("data", data);
   } catch (error) {
