@@ -196,7 +196,7 @@ export const clearErrors = () => async (dispatch) => {
 export const setDefaultAddress = (id) => async (dispatch) => {
   try {
     dispatch({ type: SET_ADDRESS_REQUEST });
-    const { data } = await axios.put(
+    const { data } = await axios.post(
       `${process.env.REACT_APP_API}/api/v1/me/setdefault/address/${id}`,
       { withCredentials: true }
     );
