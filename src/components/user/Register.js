@@ -110,7 +110,13 @@ const Register = () => {
     setRole("user");
 
     if (isAuthenticated) {
-      swal("An email sent to your Email account, please verify", "", "success");
+      setTimeout(() => {
+        swal(
+          "An email sent to your Email account, please verify",
+          "",
+          "success"
+        );
+      }, 5000);
 
       navigate("/");
       window.location.reload();
