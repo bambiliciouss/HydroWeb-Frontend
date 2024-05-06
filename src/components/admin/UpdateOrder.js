@@ -97,12 +97,12 @@ const UpdateOrderDetails = () => {
     console.log("RIDERS", users);
   }, [users]);
 
-  const updateOrderHandler = (id) => {
+  const updateOrderHandler = async (id) => {
     const formData = new FormData();
 
     formData.set("orderLevel", orderLevelup);
     socket.emit("updateOrder", { id, orderLevelup });
-    dispatch(updateOrder(id, formData));
+    await dispatch(updateOrder(id, formData));
     toggle();
     // window.location.reload();
   };
