@@ -103,7 +103,7 @@ const UpdateOrderDetails = () => {
 
   useEffect(() => {
     if (isUpdated) {
-      swal("Order Status", "", "success");
+      swal("Order Status Updated", "", "success");
       toggle();
     }
   }, [isUpdated]);
