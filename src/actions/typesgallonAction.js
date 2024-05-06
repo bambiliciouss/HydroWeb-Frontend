@@ -144,3 +144,23 @@ export const updateTypesGallon = (id, storeData) => async (dispatch) => {
     });
   }
 };
+
+export const allTypesGallonForOrder = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: ALL_TYPESGALLON_REQUEST });
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API}/api/v1/order/all/typeofgallon/${id}`,
+      { withCredentials: true }
+    );
+    dispatch({
+      type: ALL_TYPESGALLON_SUCCESS,
+      payload: data.typeGallon,
+    });
+    console.log("success", data.typeGallon);
+  } catch (error) {
+    dispatch({
+      type: ALL_TYPESGALLON_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};

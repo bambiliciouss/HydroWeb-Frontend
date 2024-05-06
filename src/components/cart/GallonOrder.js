@@ -62,7 +62,7 @@ const GallonOrder = () => {
   const refillgallon = () => {
     setRefillSelected(true);
     setNewSelected(false);
-    dispatch(allTypesGallon(storeBranchinfo.storebranch._id));
+    dispatch(allTypesGallonForOrder(storeBranchinfo.storebranch._id));
   };
 
   const newgallon = () => {
