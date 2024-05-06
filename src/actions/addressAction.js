@@ -196,17 +196,24 @@ export const clearErrors = () => async (dispatch) => {
 export const setDefaultAddress = (id, userID) => async (dispatch) => {
   console.log("Address Id", id);
   console.log("User Id", userID);
+  const token = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("token="))
+    .split("=")[1];
+
+  console.log("TOKEN", token);
   try {
     dispatch({ type: SET_ADDRESS_REQUEST });
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    };
+
     const { data } = await axios.post(
       `${process.env.REACT_APP_API}/api/v1/me/setdefault/address/${id}`,
-      config
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        withCredentials: true,
+      }
     );
     dispatch({
       type: SET_ADDRESS_SUCCESS,
