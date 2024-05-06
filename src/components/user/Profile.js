@@ -280,6 +280,9 @@ const Profile = () => {
 
   const setDefAddress = (id) => {
     dispatch(setDefaultAddress(id));
+    swal("Set Default Address Sucessfully", "", "success");
+    navigate("/my-profile");
+    dispatch({ type: SET_ADDRESS_RESET });
   };
 
   const setAddresses = () => {
