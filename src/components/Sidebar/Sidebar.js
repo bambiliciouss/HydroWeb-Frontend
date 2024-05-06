@@ -183,7 +183,7 @@ const Sidebar = (props) => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/user" onClick={closeCollapse}>
+                  <NavLink href="/customer" onClick={closeCollapse}>
                     <i className="ni ni-single-02 text-info" /> Customers
                   </NavLink>
                 </NavItem>
