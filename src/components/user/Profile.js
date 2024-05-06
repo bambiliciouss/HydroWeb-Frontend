@@ -73,7 +73,7 @@ const Profile = () => {
   const { user, loading } = useSelector((state) => state.auth);
   const { addresscreated } = useSelector((state) => state.newAddress);
   const { useraddress } = useSelector((state) => state.allAddress);
-  const { isDeleted, isUpdated, error, isDefault, isDefaultSet } = useSelector(
+  const { isDeleted, isUpdated, error, isDefault } = useSelector(
     (state) => state.addressrecord
   );
   const { addressdetails } = useSelector((state) => state.singleAddress);
@@ -192,7 +192,7 @@ const Profile = () => {
       navigate("/my-profile");
       dispatch({ type: DELETE_ADDRESS_RESET });
     }
-    if (isDefaultSet) {
+    if (isDefault) {
       swal("Set Default Address Sucessfully", "", "success");
       navigate("/my-profile");
       dispatch({ type: SET_ADDRESS_RESET });
@@ -278,8 +278,8 @@ const Profile = () => {
     toggleEditModal();
   };
 
-  const setDefAddress = (id, userID) => {
-    dispatch(setDefaultAddress(id, userID));
+  const setDefAddress = (id) => {
+    dispatch(setDefaultAddress(id));
   };
 
   const setAddresses = () => {
@@ -328,7 +328,7 @@ const Profile = () => {
             <Badge
               color={useraddresses.isDefault ? "success" : "secondary"}
               // href=""
-              onClick={() => setDefAddress(useraddresses._id, user._id)}
+              onClick={() => setDefAddress(useraddresses._id)}
               style={{ cursor: "pointer" }}>
               {useraddresses.isDefault ? "Default" : "Default"}
             </Badge>
