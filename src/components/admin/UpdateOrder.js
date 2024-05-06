@@ -96,10 +96,10 @@ const UpdateOrderDetails = () => {
     console.log("RIDERS", users);
   }, [users]);
 
-  const updateOrderHandler = (id, data) => {
+  const updateOrderHandler = (id) => {
     const formData = new FormData();
 
-    formData.set("orderLevel", data.orderLevelup);
+    formData.set("orderLevel", orderLevelup);
     socket.emit("updateOrder", { id, orderLevelup });
     dispatch(updateOrder(id, formData));
     toggle();
@@ -153,8 +153,7 @@ const UpdateOrderDetails = () => {
                                   className="mb-3"
                                   color="primary"
                                   type="button"
-                                  onClick={toggle}
-                                >
+                                  onClick={toggle}>
                                   Update Order Status{" "}
                                   {orderStatus && orderStatus.orderLevel}
                                 </Button>
@@ -164,8 +163,7 @@ const UpdateOrderDetails = () => {
                           <Modal
                             className="modal-dialog-centered"
                             isOpen={modal}
-                            toggle={toggle}
-                          >
+                            toggle={toggle}>
                             <ModalHeader toggle={toggle}>
                               Update Status
                             </ModalHeader>
@@ -191,8 +189,7 @@ const UpdateOrderDetails = () => {
                                         value={orderLevelup}
                                         onChange={(e) =>
                                           setOrderLevel(e.target.value)
-                                        }
-                                      >
+                                        }>
                                         <option value="" disabled>
                                           Select Status
                                         </option>
@@ -232,8 +229,7 @@ const UpdateOrderDetails = () => {
                                       value={orderLevelup}
                                       onChange={(e) =>
                                         setOrderLevel(e.target.value)
-                                      }
-                                    >
+                                      }>
                                       <option value="" disabled>
                                         Select Status
                                       </option>
@@ -260,8 +256,7 @@ const UpdateOrderDetails = () => {
                                     value={assignedRider}
                                     onChange={(e) =>
                                       setAssignedRider(e.target.value)
-                                    }
-                                  >
+                                    }>
                                     <option value="">Select Rider</option>
                                     {users.map((item) => (
                                       <option key={item._id} value={item._id}>
@@ -282,8 +277,7 @@ const UpdateOrderDetails = () => {
                                     orderLevelup === "Out for Delivery"
                                       ? assignHandler(order._id) // Function for assigning
                                       : updateOrderHandler(order._id) // Function for updating
-                                }
-                              >
+                                }>
                                 {orderLevelup === "Container for pick up" ||
                                 orderLevelup === "Out for Delivery"
                                   ? "Assign"
@@ -408,14 +402,12 @@ const UpdateOrderDetails = () => {
                                       <Col sm="5">{item.type} (REFILL)</Col>
                                       <Col
                                         sm="3"
-                                        style={{ textAlign: "center" }}
-                                      >
+                                        style={{ textAlign: "center" }}>
                                         {item.quantity} pc(s)
                                       </Col>
                                       <Col
                                         sm="4"
-                                        style={{ textAlign: "right" }}
-                                      >
+                                        style={{ textAlign: "right" }}>
                                         ₱{item.price}.00
                                       </Col>
                                     </Row>
@@ -428,14 +420,12 @@ const UpdateOrderDetails = () => {
                                       </Col>
                                       <Col
                                         sm="3"
-                                        style={{ textAlign: "center" }}
-                                      >
+                                        style={{ textAlign: "center" }}>
                                         {item.quantity} pc(s)
                                       </Col>
                                       <Col
                                         sm="4"
-                                        style={{ textAlign: "right" }}
-                                      >
+                                        style={{ textAlign: "right" }}>
                                         ₱{item.price}.00
                                       </Col>
                                     </Row>
