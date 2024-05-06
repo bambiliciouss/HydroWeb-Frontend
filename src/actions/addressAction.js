@@ -198,9 +198,15 @@ export const setDefaultAddress = (id, userID) => async (dispatch) => {
   console.log("User Id", userID);
   try {
     dispatch({ type: SET_ADDRESS_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    };
     const { data } = await axios.post(
       `${process.env.REACT_APP_API}/api/v1/me/setdefault/address/${id}`,
-      { withCredentials: true }
+      config
     );
     dispatch({
       type: SET_ADDRESS_SUCCESS,
