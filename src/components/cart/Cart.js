@@ -280,7 +280,7 @@ const Cart = () => {
                                         ₱{itemP.price}.00
                                       </span>
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-4 d-flex align-items-center justify-content-between">
                                       <button
                                         className="btn btn-danger"
                                         onClick={() =>
@@ -294,7 +294,7 @@ const Cart = () => {
 
                                       <input
                                         type="number"
-                                        className="form-control mx-2"
+                                        className="form-control"
                                         style={{ width: "80px" }}
                                         value={itemP.quantity}
                                         onChange={(e) =>
