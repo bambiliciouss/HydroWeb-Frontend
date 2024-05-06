@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import {
   CREATE_ADDRESS_REQUEST,
   CREATE_ADDRESS_SUCCESS,
@@ -196,10 +197,7 @@ export const clearErrors = () => async (dispatch) => {
 export const setDefaultAddress = (id, userID) => async (dispatch) => {
   console.log("Address Id", id);
   console.log("User Id", userID);
-  const token = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("token="))
-    .split("=")[1];
+  const token = Cookies.get("token");
 
   console.log("TOKEN", token);
   try {
