@@ -56,7 +56,7 @@ const Cart = () => {
       console.error("Invalid quantity");
       return;
     }
-    dispatch(addProductToCart(product, newQty));
+    dispatch(addProductToCart(product, newQuantity));
   };
 
   const removeCartItemHandler = (id) => {
