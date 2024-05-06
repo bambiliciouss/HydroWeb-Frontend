@@ -104,7 +104,7 @@ const UpdateOrderDetails = () => {
     socket.emit("updateOrder", { id, orderLevelup });
     dispatch(updateOrder(id, formData));
     toggle();
-    window.location.reload();
+    // window.location.reload();
   };
 
   const assignHandler = (id) => {
