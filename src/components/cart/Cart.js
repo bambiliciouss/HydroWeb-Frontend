@@ -282,7 +282,7 @@ const Cart = () => {
                                     </div>
                                     <div className="col-4 d-flex align-items-center justify-content-between">
                                       <button
-                                        className="btn btn-danger"
+                                          className="btn btn-danger mr-2"
                                         onClick={() =>
                                           decreasePQty(
                                             itemP.product,
@@ -294,7 +294,7 @@ const Cart = () => {
 
                                       <input
                                         type="number"
-                                        className="form-control"
+                                        className="form-control mx-2"
                                         style={{ width: "80px" }}
                                         value={itemP.quantity}
                                         onChange={(e) =>
