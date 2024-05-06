@@ -78,7 +78,7 @@ export const singlePhysicalChemTestRecord = (id) => async (dispatch) => {
   try {
     dispatch({ type: SINGLE_PHYSICALCHEMTEST_REQUEST });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_API}/api/v1/PhyChemTest/record//${id}`,
+      `${process.env.REACT_APP_API}/api/v1/PhyChemTest/record/${id}`,
       { withCredentials: true }
     );
     dispatch({
