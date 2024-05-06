@@ -20,7 +20,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 import { useDispatch, useSelector } from "react-redux";
-import { allTypesGallon } from "actions/typesgallonAction";
+import { allTypesGallonForOrder } from "actions/typesgallonAction";
 import MetaData from "components/layout/MetaData";
 
 import { addItemToCart, addProductToCart } from "../../actions/cartActions";
