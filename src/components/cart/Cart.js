@@ -239,6 +239,20 @@ const Cart = () => {
                                         {itemP.type.typeofGallon} (NEW
                                         CONTAINER)
                                       </span>
+
+                                      {itemP.type.typeofGallon.indexOf(
+                                        "GALLON"
+                                      ) === -1 &&
+                                        itemP.quantity < 25 && (
+                                          <div className="row">
+                                            <div className="col-12">
+                                              <p className="text-danger">
+                                                Quantity should be more than 25
+                                                pcs to proceed to checkout.
+                                              </p>
+                                            </div>
+                                          </div>
+                                        )}
                                     </div>
 
                                     <div className="col-2">
@@ -335,19 +349,13 @@ const Cart = () => {
                               </p>
 
                               <hr />
-                              {cartProductItems.map((itemP) => (
-                                <button
-                                  id="checkout_btn"
-                                  className="btn btn-primary btn-block"
-                                  onClick={checkoutHandler}
-                                  disabled={
-                                    itemP.type.typeofGallon.indexOf(
-                                      "GALLON"
-                                    ) === -1 && itemP.quantity < 25
-                                  }>
-                                  Check out
-                                </button>
-                              ))}
+
+                              <button
+                                id="checkout_btn"
+                                className="btn btn-primary btn-block"
+                                onClick={checkoutHandler}>
+                                Check out
+                              </button>
                             </div>
                           </div>
                         </div>
