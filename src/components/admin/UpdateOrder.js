@@ -106,6 +106,7 @@ const UpdateOrderDetails = () => {
     if (isUpdated) {
       swal("Order Status Updated", "", "success");
       toggle();
+      window.location.reload();
     }
   }, [isUpdated]);
 
