@@ -90,7 +90,8 @@ const UpdateOrderDetails = () => {
       console.log("STORE", selectedStore.store);
       dispatch(allRider(selectedStore.store));
     }
-  }, [dispatch, selectedStore]);
+    console.log("orderLevelup:", orderLevelup);
+  }, [dispatch, selectedStore, orderLevelup]);
 
   useEffect(() => {
     console.log("RIDERS", users);
