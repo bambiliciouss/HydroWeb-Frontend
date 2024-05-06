@@ -65,6 +65,17 @@ const Cart = () => {
   const checkoutHandler = () => {
     navigate("/containerstatus");
   };
+
+  const [isCheckoutDisabled, setCheckoutDisabled] = useState(false);
+
+  useEffect(() => {
+    // Check if any item does not contain "Gallon" and quantity is less than 25
+    const shouldDisableCheckout = cartProductItems.some(
+      (itemP) => !/Gallon/i.test(itemP.type.typeofGallon) && itemP.quantity < 25
+    );
+    setCheckoutDisabled(true);
+  }, [cartProductItems]);
+
   return (
     <Fragment>
       <AuthNavbar />
@@ -240,9 +251,9 @@ const Cart = () => {
                                         CONTAINER)
                                       </span>
 
-                                      {itemP.type.typeofGallon.indexOf(
-                                        "GALLON"
-                                      ) === -1 &&
+                                      {!/Gallon/i.test(
+                                        itemP.type.typeofGallon
+                                      ) &&
                                         itemP.quantity < 25 && (
                                           <div className="row">
                                             <div className="col-12">
@@ -353,7 +364,8 @@ const Cart = () => {
                               <button
                                 id="checkout_btn"
                                 className="btn btn-primary btn-block"
-                                onClick={checkoutHandler}>
+                                onClick={checkoutHandler}
+                                disabled={isCheckoutDisabled}>
                                 Check out
                               </button>
                             </div>
