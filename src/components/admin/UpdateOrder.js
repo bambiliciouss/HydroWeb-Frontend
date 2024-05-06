@@ -107,7 +107,6 @@ const UpdateOrderDetails = () => {
         type: UPDATE_ORDER_RESET,
       });
       toggle();
-      window.location.reload();
     }
   }, [isUpdated]);
 
@@ -121,7 +120,7 @@ const UpdateOrderDetails = () => {
     // window.location.reload();
   };
 
-  const assignHandler = (id) => {
+  const assignHandler = async (id) => {
     const formData = new FormData();
 
     formData.set("orderLevel", orderLevelup);
@@ -129,8 +128,6 @@ const UpdateOrderDetails = () => {
     socket.emit("containerForPickup", { id, orderLevelup, assignedRider });
     socket.emit("updateOrder", { id, orderLevelup });
     dispatch(updateOrderwithRider(id, formData));
-    toggle();
-    window.location.reload();
   };
 
   return (
