@@ -44,6 +44,7 @@ import BusinessPermit from "components/admin/BusinessPermit";
 import TypesGallon from "components/admin/TypesGallon";
 import Employee from "components/admin/Employee";
 import Rider from "components/admin/Rider";
+import User from "components/admin/User";
 
 import UpdateRider from "components/admin/UpdateRider";
 import UpdateEmployee from "components/admin/UpdateEmployee";
@@ -198,7 +199,7 @@ function App() {
         <Route path="/create/store/barangay/:id" element={<ProtectedRoute> <StoreBarangayList /> </ProtectedRoute>}  exact="true"  />
         <Route path="/employee" element={<ProtectedRoute><Employee/></ProtectedRoute>} exact="true" />
         <Route path="/rider" element={<ProtectedRoute><Rider/></ProtectedRoute>} exact="true" />
-
+        <Route path="/customer" element={<ProtectedRoute><User/></ProtectedRoute>} exact="true" />
 
         <Route path="/superadmin/dashboard" element={<ProtectedRoute><SuperAdminDashboard /></ProtectedRoute>} exact="true" />
         <Route path="/superadmin/userlist" element={<ProtectedRoute><SuperAdminUserList /></ProtectedRoute>} exact="true" />
