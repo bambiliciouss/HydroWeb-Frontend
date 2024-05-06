@@ -163,7 +163,9 @@ const AdminRegister = () => {
                 <div className="header-body text-center mb-3">
                   <Row className="justify-content-center">
                     <Col lg="5" md="6">
-                      <h1 className="text-black">Welcome to Aquatic Dragon!</h1>
+                      <h1 className="text-black">
+                        Welcome to Water Ordering and Delivery Station!
+                      </h1>
                     </Col>
                   </Row>
                 </div>

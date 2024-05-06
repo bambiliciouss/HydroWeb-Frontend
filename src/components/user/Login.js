@@ -61,17 +61,16 @@ const Login = () => {
 
       if (user && user.role === "admin") {
         navigate("/dashboard");
-        socket.emit("login", {userID: user._id,role: user.role})
+        socket.emit("login", { userID: user._id, role: user.role });
       } else if (user && user.role === "superadmin") {
         navigate("/superadmin/dashboard");
       } else if (user && user.role === "employee") {
         navigate("/employee/orderlist");
-        socket.emit("login", {userID: user._id, role: user.role})
-      }  else if (user && user.role === "rider") {
+        socket.emit("login", { userID: user._id, role: user.role });
+      } else if (user && user.role === "rider") {
         navigate("/rider/orderlist");
-        socket.emit("login", {userID: user._id, role: user.role})
-      }
-      else if (
+        socket.emit("login", { userID: user._id, role: user.role });
+      } else if (
         user &&
         user.verified &&
         user &&
@@ -86,7 +85,7 @@ const Login = () => {
         navigate("/login");
       } else {
         navigate("/");
-        socket.emit('login', {userID: user._id, role: user.role})
+        socket.emit("login", { userID: user._id, role: user.role });
       }
     } else if (error) {
       //notifyError(error);
@@ -217,7 +216,7 @@ const Login = () => {
                 </Col>
                 <Col className="text-right" xs="6">
                   <a className="text-info" href="/register">
-                    <small>Create new account</small>
+                    <small>Create new customer account</small>
                   </a>
                 </Col>
               </Row>
@@ -233,7 +232,7 @@ const Login = () => {
           </Row>
         </Container>
       </div>
-      <AuthFooter />
+      {/* <AuthFooter /> */}
     </>
   );
 };

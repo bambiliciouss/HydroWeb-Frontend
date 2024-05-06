@@ -422,151 +422,208 @@ const Register = () => {
                                       </p>
                                       <ol>
                                         <li>
-                                          <strong>Service Agreement:</strong>
+                                          <strong>Introduction</strong>
                                           <ul>
                                             <li>
-                                              By agreeing to abide by the terms
-                                              and conditions outlined herein,
-                                              the customer demonstrates their
-                                              commitment to maintaining a
-                                              professional and respectful
-                                              relationship with the water
-                                              refilling station. These terms and
-                                              conditions are guidelines to
-                                              ensure a smooth and satisfactory
-                                              experience for all parties
-                                              involved. It is important for the
-                                              customer to thoroughly understand
-                                              and adhere to these provisions to
-                                              avoid any potential
-                                              misunderstandings or conflicts.
+                                              By using our water refilling
+                                              station e-commerce platform and
+                                              making transactions from our
+                                              website, you consent to be bound
+                                              by the following terms and
+                                              conditions. These terms and
+                                              conditions cover a wide range of
+                                              topics, including delivery
+                                              methods, dispute resolution
+                                              procedures, usage policies,
+                                              payment terms, and return
+                                              policies. These terms and
+                                              conditions, which are intended to
+                                              guarantee an equitable and
+                                              transparent experience for all
+                                              users and customers, are impliedly
+                                              accepted by your continuing use of
+                                              our platform and services.
                                             </li>
                                           </ul>
                                         </li>
                                         <li>
-                                          <strong>Water Quality:</strong>
+                                          <strong>Ordering Process</strong>
                                           <ul>
                                             <li>
-                                              The water refilling station, which
-                                              strictly complies with the highest
-                                              standards of health and safety,
-                                              stands as a resolute guarantee of
-                                              the water's purity and safety.
-                                              This business is steadfast in its
-                                              dedication to delivering water
-                                              that exceeds regulatory standards
-                                              and carefully monitors and
-                                              maintains the quality of its water
-                                              supply.
+                                              Clients can easily place orders
+                                              online by exploring our extensive
+                                              product selection (5L gallons and
+                                              PET bottles). This optimized
+                                              process guarantees our esteemed
+                                              clients a smooth and delightful
+                                              purchasing encounter, augmenting
+                                              contentment and developing
+                                              enduring connections.
                                             </li>
 
                                             <li>
-                                              The water refill station values
-                                              and actively promotes its
-                                              customers' attention in upholding
-                                              the highest standards of water
-                                              quality. A strong mechanism is in
-                                              place to enable customers to
-                                              report any issues or observations
-                                              regarding the quality of the water
-                                              as soon as they arise. In addition
-                                              to encouraging transparency, this
-                                              open line of contact is essential
-                                              to the ongoing enhancement and
-                                              guarantee of water safety.
-                                            </li>
-                                          </ul>
-                                        </li>
-                                        <li>
-                                          <strong>Pricing and Payment:</strong>
-                                          <ul>
-                                            <li>
-                                              Refilling five-gallon water
-                                              containers costs ₱30.00, and the
-                                              payment upon delivery option
-                                              demonstrates the water refilling
-                                              station's commitment to ease of
-                                              use, affordability, and client
-                                              pleasure. The station's goal of
-                                              giving the community access to
-                                              safe, dependable, and easily
-                                              accessible water replenishment
-                                              services is in line with this open
-                                              and customer-focused pricing
-                                              approach.
-                                            </li>
-                                          </ul>
-                                        </li>
-                                        <li>
-                                          <strong>Operating Hours:</strong>
-                                          <ul>
-                                            <li>
-                                              The water refilling station's
-                                              operating hours are 8:00 am – 5:00
-                                              pm, Monday to Saturday only.
-                                            </li>
-                                            <li>
-                                              To streamline operations and
-                                              ensure the efficiency of its
-                                              services, the water refilling
-                                              station has established a policy
-                                              regarding the timing of delivery
-                                              requests. Specifically, the
-                                              station has decided not to
-                                              entertain delivery requests made
-                                              within 15 minutes before the
-                                              scheduled closing time. However,
-                                              the station recognizes that
-                                              exceptional circumstances may
-                                              arise, and to accommodate such
-                                              situations, an alternative
-                                              solution is provided – customers
-                                              may still opt for pick-up
-                                              arrangements during this
-                                              timeframe.
-                                            </li>
-                                          </ul>
-                                        </li>
-                                        <li>
-                                          <strong>Privacy Policy:</strong>
-                                          <ul>
-                                            <li>
-                                              The purpose of the privacy policy
-                                              is to give customers clarity and
-                                              confidence about how their
-                                              personal information is handled.
-                                              It describes the precise
-                                              categories of data that are
-                                              gathered during transactions,
-                                              including names, addresses, and
-                                              contact information, and it
-                                              clarifies the reason behind the
-                                              need for this data. The station
-                                              guarantees that the collection of
-                                              consumer data is limited to
-                                              appropriate business uses, like
-                                              order processing, delivery
-                                              assistance, and proper
-                                              record-keeping.
+                                              We provide easy ways to pay to
+                                              meet your needs, such as in-person
+                                              transactions and Maya payments. We
+                                              work hard to give our customers a
+                                              seamless and safe payment
+                                              experience, regardless of whether
+                                              they prefer the more conventional
+                                              method of making payments in
+                                              person or the convenience of
+                                              digital transactions through Maya.
+                                              Our dedication to offering a
+                                              variety of payment options
+                                              guarantees that you can select the
+                                              one that most closely matches your
+                                              needs and tastes, making
+                                              transactions with us simple and
+                                              hassle-free.
                                             </li>
                                           </ul>
                                         </li>
                                         <li>
                                           <strong>
-                                            Changes to Terms and Conditions:
+                                            Product/Service Description
                                           </strong>
                                           <ul>
                                             <li>
-                                              The water refilling station
-                                              reserves the right to modify these
-                                              terms and conditions. Changes will
-                                              be communicated in advance.
+                                              Our platform offers services and
+                                              solutions for refilling water that
+                                              are specifically designed to
+                                              fulfill your hydration demands. In
+                                              order to meet your specific needs
+                                              and preferences, we provide a
+                                              range of water bottles in
+                                              different sizes. We also offer new
+                                              water containers that are made to
+                                              provide a steady flow of pure,
+                                              revitalizing water for your house
+                                              or place of business. With
+                                              dependable services and
+                                              high-quality products, our
+                                              platform has you covered.
+                                            </li>
+                                          </ul>
+                                        </li>
+                                        <li>
+                                          <strong>Delivery and Shipping</strong>
+                                          <ul>
+                                            <li>
+                                              We deliver within specified areas.
+                                            </li>
+                                            <li>
+                                              You will receive precise
+                                              information on delivery schedules
+                                              when you place your order. Please
+                                              be aware that delays resulting
+                                              from outside causes beyond our
+                                              control are not subject to our
+                                              liability. Unexpected natural
+                                              disasters, delays at customs, and
+                                              transportation problems are a few
+                                              examples of these variables. You
+                                              can be confident that we'll work
+                                              hard to make sure your order gets
+                                              to you on time, and we'll keep you
+                                              updated as things happen so you
+                                              know what's going on.
+                                            </li>
+                                            <li>
+                                              It is the customers'
+                                              responsibility to promptly inspect
+                                              all delivered products and report
+                                              any damage or inconsistency to the
+                                              supplier within the allotted time
+                                              frame. This proactive inspection
+                                              and reporting method promotes
+                                              customer happiness and upholds
+                                              product quality standards by
+                                              ensuring that any concerns can be
+                                              resolved quickly.● It is the
+                                              customers' responsibility to
+                                              promptly inspect all delivered
+                                              products and report any damage or
+                                              inconsistency to the supplier
+                                              within the allotted time frame.
+                                              This proactive inspection and
+                                              reporting method promotes customer
+                                              happiness and upholds product
+                                              quality standards by ensuring that
+                                              any concerns can be resolved
+                                              quickly.
+                                            </li>
+                                          </ul>
+                                        </li>
+                                        <li>
+                                          <strong>
+                                            Customer Responsibilities
+                                          </strong>
+                                          <ul>
+                                            <li>
+                                              By supplying accurate information
+                                              and actively upholding account
+                                              security procedures, customers are
+                                              essential to the ordering
+                                              process's seamless operation and
+                                              the protection of their accounts.
+                                              In order to ensure smooth
+                                              transactions and prevent any
+                                              inconsistencies or delays,
+                                              customers must take reasonable
+                                              steps to provide accurate
+                                              information when placing orders.
+                                              Their accounts are further
+                                              protected from fraudulent activity
+                                              and illegal access by adhering to
+                                              strict security standards like
+                                              using strong passwords, enabling
+                                              two-factor authentication, and
+                                              reporting any suspicious activity
+                                              right once. By carrying out these
+                                              obligations, consumers make a
+                                              substantial contribution to a
+                                              trustworthy and safe purchasing
+                                              environment.
+                                            </li>
+                                          </ul>
+                                        </li>
+                                        <li>
+                                          <strong>Privacy Policy</strong>
+                                          <ul>
+                                            <li>
+                                              Our privacy policy governs the
+                                              collection, use, and protection of
+                                              client data in our system.
+                                              Customers automatically agree to
+                                              and acknowledge adherence to our
+                                              privacy rules when they use our
+                                              site.
                                             </li>
                                           </ul>
                                         </li>
                                       </ol>
+
+                                      <p
+                                        style={{
+                                          textIndent: "20px",
+                                          textAlign: "justify",
+                                        }}>
+                                        <p
+                                          style={{
+                                            textIndent: "20px",
+                                            textAlign: "justify",
+                                          }}>
+                                          By using our services, you consent to
+                                          the collection, use, and sharing of
+                                          your personal information as described
+                                          in this privacy policy. If you have
+                                          any questions or concerns about our
+                                          privacy policy, please contact us.
+                                        </p>
+                                      </p>
                                       <hr />
-                                      <div style={{ textAlign: "center" }}>
+                                      {/* <div style={{ textAlign: "center" }}>
                                         <h2>Privacy Policy</h2>
                                       </div>
                                       <p
@@ -692,7 +749,7 @@ const Register = () => {
                                         this privacy policy. If you have any
                                         questions or concerns about our privacy
                                         policy, please contact us.
-                                      </p>
+                                      </p> */}
                                     </ModalBody>
                                     {/* <ModalFooter>
                                       <Button
