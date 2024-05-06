@@ -294,7 +294,7 @@ const Cart = () => {
 
                                       <input
                                         type="number"
-                                        className="item-quantity"
+                                        className="form-control"
                                         value={itemP.quantity}
                                         onChange={(e) =>
                                           updateQuantity(
