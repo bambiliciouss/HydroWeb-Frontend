@@ -124,7 +124,7 @@ const OrderDetails = () => {
 
     dispatch(updateOrder(id, formData));
     toggle();
-    window.location.reload();
+    // window.location.reload();
   };
   const handleSubmit = async (data) => {
     const formData = new FormData();

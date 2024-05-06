@@ -137,6 +137,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
 };
 
 export const updateOrder = (id, orderData) => async (dispatch) => {
+  console.log("Order Status", orderData);
   try {
     dispatch({ type: UPDATE_ORDER_REQUEST });
     const config = {
