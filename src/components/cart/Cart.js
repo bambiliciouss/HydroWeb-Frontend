@@ -283,9 +283,17 @@ const Cart = () => {
                                         -
                                       </button>
 
-                                      <span className="item-quantity">
-                                        {itemP.quantity} pc(s)
-                                      </span>
+                                      <input
+                                        type="number"
+                                        className="item-quantity"
+                                        value={itemP.quantity}
+                                        onChange={(e) =>
+                                          updateQuantity(
+                                            itemP.product,
+                                            parseInt(e.target.value)
+                                          )
+                                        }
+                                      />
 
                                       <button
                                         className="btn btn-primary mr-2"
