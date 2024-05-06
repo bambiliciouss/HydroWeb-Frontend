@@ -86,8 +86,6 @@ const UpdateOrderDetails = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-
-    
   }, [dispatch, alert, error, id]);
 
   useEffect(() => {
@@ -105,6 +103,9 @@ const UpdateOrderDetails = () => {
   useEffect(() => {
     if (isUpdated) {
       swal("Order Status Updated", "", "success");
+      dispatch({
+        type: UPDATE_ORDER_RESET,
+      });
       toggle();
       window.location.reload();
     }
