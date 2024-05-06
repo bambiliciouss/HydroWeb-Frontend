@@ -279,7 +279,7 @@ const Profile = () => {
   };
 
   const setDefAddress = (id) => {
-    dispatch(setDefaultAddress(id));
+    dispatch(setDefaultAddress("6638501f0ef91660d2d31c68"));
   };
 
   const setAddresses = () => {
