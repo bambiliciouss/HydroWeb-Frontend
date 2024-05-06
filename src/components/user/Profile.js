@@ -73,7 +73,7 @@ const Profile = () => {
   const { user, loading } = useSelector((state) => state.auth);
   const { addresscreated } = useSelector((state) => state.newAddress);
   const { useraddress } = useSelector((state) => state.allAddress);
-  const { isDeleted, isUpdated, error, isDefault } = useSelector(
+  const { isDeleted, isUpdated, error, isDefault, isDefaultSet } = useSelector(
     (state) => state.addressrecord
   );
   const { addressdetails } = useSelector((state) => state.singleAddress);
@@ -192,7 +192,7 @@ const Profile = () => {
       navigate("/my-profile");
       dispatch({ type: DELETE_ADDRESS_RESET });
     }
-    if (isDefault) {
+    if (isDefaultSet) {
       swal("Set Default Address Sucessfully", "", "success");
       navigate("/my-profile");
       dispatch({ type: SET_ADDRESS_RESET });
@@ -279,7 +279,7 @@ const Profile = () => {
   };
 
   const setDefAddress = (id) => {
-    dispatch(setDefaultAddress("6638501f0ef91660d2d31c68"));
+    dispatch(setDefaultAddress(id));
   };
 
   const setAddresses = () => {

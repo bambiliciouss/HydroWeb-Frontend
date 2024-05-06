@@ -165,13 +165,13 @@ export const addressReducer = (state = {}, action) => {
         isUpdated: action.payload,
       };
 
-      case SET_ADDRESS_SUCCESS:
-        return {
-          ...state,
-          loading: false,
-          isDefault: action.payload,
-        };
-  
+    case SET_ADDRESS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isDefaultSet: true,
+        isDefault: action.payload,
+      };
 
     case UPDATE_ADDRESS_RESET:
       return {
@@ -179,15 +179,15 @@ export const addressReducer = (state = {}, action) => {
         isUpdated: false,
       };
 
-      case SET_ADDRESS_RESET:
-        return {
-          ...state,
-          isDefault: false,
-        };
+    case SET_ADDRESS_RESET:
+      return {
+        ...state,
+        isDefaultSet: false,
+      };
 
     case UPDATE_ADDRESS_FAIL:
     case DELETE_ADDRESS_FAIL:
-      case SET_ADDRESS_FAIL:
+    case SET_ADDRESS_FAIL:
       return {
         ...state,
         loading: false,

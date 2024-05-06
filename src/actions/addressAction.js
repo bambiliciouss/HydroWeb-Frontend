@@ -194,6 +194,7 @@ export const clearErrors = () => async (dispatch) => {
 };
 
 export const setDefaultAddress = (id) => async (dispatch) => {
+  console.log("Address Id", id);
   try {
     dispatch({ type: SET_ADDRESS_REQUEST });
     const { data } = await axios.post(
