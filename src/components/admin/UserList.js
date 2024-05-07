@@ -74,7 +74,7 @@ const UserList = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedUserfname, setSelectedUserfname] = useState(null);
   const [selectedUserlname, setSelectedUserlname] = useState(null);
-  const { storeBranch } = useSelector((state) => state.allStoreBranch);
+  const { storeBranch } = useSelector((state) => state.storeDetails);
 
   const toggleModal = () => {
     setModal(!modal);
