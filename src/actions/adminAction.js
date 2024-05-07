@@ -465,3 +465,23 @@ export const getEmployeeBranch = (id) => async (dispatch) => {
     });
   }
 };
+
+
+export const getBranchUsers = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: ALL_CUSTOMER_REQUEST });
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API}/api/v1/store/customerlist/${id}`,
+      { withCredentials: true }
+    );
+    dispatch({
+      type: ALL_CUSTOMER_SUCCESS,
+      payload: data.usersWithTransactions,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_CUSTOMER_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};

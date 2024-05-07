@@ -42,7 +42,7 @@ import {
 } from "reactstrap";
 import * as htmlToImage from "html-to-image";
 import QRCode from "react-qr-code";
-import { getAllStaff, getSingleBranchUsers } from "../../actions/adminAction";
+import { getAllStaff,getBranchUsers } from "../../actions/adminAction";
 import { getStoreDetails } from "actions/storebranchActions";
 const UserList = () => {
   const dispatch = useDispatch();
@@ -115,7 +115,7 @@ const UserList = () => {
   useEffect(() => {
     dispatch(allUsers());
     dispatch(allAdminStoreBranch());
-    dispatch(getSingleBranchUsers(id));
+    dispatch(getBranchUsers(id));
     dispatch(getStoreDetails(id));
 
     if (isDeleted) {
@@ -123,7 +123,7 @@ const UserList = () => {
       dispatch({ type: DELETE_USER_RESET });
     }
 
-    setQrDetails(`http://localhost:3000/details/${selectedUser}`);
+    setQrDetails(`${process.env.REACT_APP_API}/details/${selectedUser}`);
   }, [dispatch, isDeleted, navigate, selectedUser, activeStoreBranch]);
   // console.log("result", qrdetails);
 
@@ -161,11 +161,11 @@ const UserList = () => {
         //   field: "phone",
         //   sort: "asc",
         // },
-        // {
-        //   label: "Address",
-        //   field: "address",
-        //   sort: "asc",
-        // },
+        {
+          label: "Address",
+          field: "address",
+          sort: "asc",
+        },
 
         // {
         //   label: "Email",
@@ -182,20 +182,20 @@ const UserList = () => {
     };
 
     users.forEach((user) => {
-      // let addressString = "No address set";
+      let addressString = "No address set";
 
-      // if (user.addresses.length > 0) {
-      //   const defaultAddress =
-      //     user.addresses.find((address) => address.isDefault) || {};
-      //   if (Object.keys(defaultAddress).length > 0) {
-      //     addressString = `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`;
-      //   }
-      // }
+      if (user.addresses.length > 0) {
+        const defaultAddress =
+          user.addresses.find((address) => address.isDefault) || {};
+        if (Object.keys(defaultAddress).length > 0) {
+          addressString = `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`;
+        }
+      }
 
       data.rows.push({
         name: `${user.fname} ${user.lname}`,
         phone: user.phone,
-        // address: addressString, // email: user.email,
+        address: addressString, // email: user.email,
         image: (
           <img
             className="d-block w-100"
