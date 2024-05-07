@@ -191,38 +191,44 @@ const OrderDetails = () => {
                 <Col lg="6" xl="9">
                   <h3 className="mb-0">Order Details</h3>
                 </Col>
-                {user &&
-                  user.role === "user" &&
-                  orderStatus &&
-                  orderStatus.some(
-                    (status) => status.orderLevel === "Delivered"
-                  ) && (
-                    <Col lg="6" xl="3">
-                      <Button
-                        block
-                        className="mb-3"
-                        color="primary"
-                        type="button"
-                        onClick={toggle}>
-                        Write a review!
-                      </Button>
+                {user && user.role === "user" && orderStatus && (
+                  <Col lg="6" xl="3">
+                    {orderStatus.some(
+                      (status) => status.orderLevel === "Delivered"
+                    ) && (
+                      <>
+                        {orderStatus.some(
+                          (status) => status.orderLevel === "Completed"
+                        ) ? // Hide the button if order level is "Completed"
+                        null : ( // or you can replace with any other UI element indicating why the button is hidden
+                          <Button
+                            block
+                            className="mb-3"
+                            color="primary"
+                            type="button"
+                            onClick={toggle}>
+                            Write a review!
+                          </Button>
+                        )}
 
-                      <Modal
-                        className="modal-dialog-centered"
-                        isOpen={modal}
-                        toggle={toggle}>
-                        <ModalHeader toggle={toggle}>
-                          Leave us a Review!
-                        </ModalHeader>
-                        <ModalBody>
-                          <ReviewOrder
-                            onSubmit={handleSubmit}
-                            order={order._id}
-                          />
-                        </ModalBody>
-                      </Modal>
-                    </Col>
-                  )}
+                        <Modal
+                          className="modal-dialog-centered"
+                          isOpen={modal}
+                          toggle={toggle}>
+                          <ModalHeader toggle={toggle}>
+                            Leave us a Review!
+                          </ModalHeader>
+                          <ModalBody>
+                            <ReviewOrder
+                              onSubmit={handleSubmit}
+                              order={order._id}
+                            />
+                          </ModalBody>
+                        </Modal>
+                      </>
+                    )}
+                  </Col>
+                )}
                 {user && user.role === "admin" && (
                   <Col md="4">
                     <Button
