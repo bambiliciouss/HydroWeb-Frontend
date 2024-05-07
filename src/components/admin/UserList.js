@@ -185,11 +185,21 @@ const UserList = () => {
       const defaultAddress =
         user.addresses.find((address) => address.isDefault) || {};
 
+      let addressString = "No set address";
+      if (
+        defaultAddress.houseNo &&
+        defaultAddress.purokNum &&
+        defaultAddress.streetName &&
+        defaultAddress.barangay &&
+        defaultAddress.city
+      ) {
+        addressString = `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`;
+      }
+
       data.rows.push({
         name: `${user.fname} ${user.lname}`,
         phone: user.phone,
-        address: `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`,
-        // email: user.email,
+        address: addressString, // email: user.email,
         image: (
           <img
             className="d-block w-100"
