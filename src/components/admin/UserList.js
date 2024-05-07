@@ -161,11 +161,11 @@ const UserList = () => {
         //   field: "phone",
         //   sort: "asc",
         // },
-        {
-          label: "Address",
-          field: "address",
-          sort: "asc",
-        },
+        // {
+        //   label: "Address",
+        //   field: "address",
+        //   sort: "asc",
+        // },
 
         // {
         //   label: "Email",
@@ -182,20 +182,20 @@ const UserList = () => {
     };
 
     users.forEach((user) => {
-      let addressString = "No address set";
+      // let addressString = "No address set";
 
-      if (user.addresses.length > 0) {
-        const defaultAddress =
-          user.addresses.find((address) => address.isDefault) || {};
-        if (Object.keys(defaultAddress).length > 0) {
-          addressString = `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`;
-        }
-      }
+      // if (user.addresses.length > 0) {
+      //   const defaultAddress =
+      //     user.addresses.find((address) => address.isDefault) || {};
+      //   if (Object.keys(defaultAddress).length > 0) {
+      //     addressString = `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`;
+      //   }
+      // }
 
       data.rows.push({
         name: `${user.fname} ${user.lname}`,
         phone: user.phone,
-        address: addressString, // email: user.email,
+        // address: addressString, // email: user.email,
         image: (
           <img
             className="d-block w-100"
