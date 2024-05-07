@@ -49,6 +49,8 @@ import {
 } from "constants/adminConstants";
 import { deleteReview } from "actions/adminAction";
 import { updateSingleReview } from "actions/adminAction";
+import { updateOrder } from "../../actions/orderActions";
+
 const OrderDetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -60,7 +62,7 @@ const OrderDetails = () => {
   const [edit, setEdit] = useState(false);
   const editCommentToggle = () => setEdit(!edit);
   const toggle = () => setModal(!modal);
-  const [orderLevelup, setOrderLevel] = useState("");
+  const [orderLevelup, setOrderLevel] = useState("Completed");
   const {
     loading,
     error,
@@ -105,13 +107,11 @@ const OrderDetails = () => {
       navigate(`/order/${order._id}`);
       dispatch({ type: DELETE_REVIEW_RESET });
     }
-  
   }, [dispatch, order, isUpdated, isDeleted]);
   const handleEdit = (data) => {
     // console.log("data", data);
     dispatch(getSingleReview(data._id));
     editCommentToggle();
-    
   };
   const handleDelete = (data) => {
     // console.log("data", data);
@@ -123,22 +123,22 @@ const OrderDetails = () => {
     formData.set("orderLevel", orderLevelup);
 
     dispatch(updateOrder(id, formData));
-    // toggle();
-    // window.location.reload();
   };
   const handleSubmit = async (data) => {
     const formData = new FormData();
     formData.set("comment", data.comment);
     formData.set("rating", data.rating);
     formData.set("order", data.order);
-    formData.set("branchID", selectedStore.store)
-    formData.set("branchName", selectedStore.branchNo)
+    formData.set("branchID", selectedStore.store);
+    formData.set("branchName", selectedStore.branchNo);
     formData.set("user", user._id);
 
     await dispatch(createReview(formData));
     await dispatch(getUserReviews(user._id, order._id));
+    updateOrderHandler(id);
     toggle();
   };
+
   const updateCommentHandler = (data) => {
     console.log("data", data);
     const formData = new FormData();
@@ -161,19 +161,19 @@ const OrderDetails = () => {
             minHeight: "700px",
             marginTop: "100px",
             marginLeft: "5%",
-            marginRight: "20px"
-          }}
-        >
+            marginRight: "20px",
+          }}>
           {singleReviews && (
             <Modal
               className="modal-dialog-centered"
               isOpen={edit}
               toggle={editCommentToggle}
-              backdrop="static"
-            >
-              <ModalHeader toggle={()=>{
-                editCommentToggle()
-                dispatch(getUserReviews(user._id, order._id))}}>
+              backdrop="static">
+              <ModalHeader
+                toggle={() => {
+                  editCommentToggle();
+                  dispatch(getUserReviews(user._id, order._id));
+                }}>
                 Leave us a Review!
               </ModalHeader>
               <ModalBody>
@@ -204,16 +204,14 @@ const OrderDetails = () => {
                         className="mb-3"
                         color="primary"
                         type="button"
-                        onClick={toggle}
-                      >
+                        onClick={toggle}>
                         Write a review!
                       </Button>
 
                       <Modal
                         className="modal-dialog-centered"
                         isOpen={modal}
-                        toggle={toggle}
-                      >
+                        toggle={toggle}>
                         <ModalHeader toggle={toggle}>
                           Leave us a Review!
                         </ModalHeader>
@@ -233,16 +231,14 @@ const OrderDetails = () => {
                       className="mb-3"
                       color="primary"
                       type="button"
-                      onClick={toggle}
-                    >
+                      onClick={toggle}>
                       Update Order Status
                     </Button>
 
                     <Modal
                       className="modal-dialog-centered"
                       isOpen={modal}
-                      toggle={toggle}
-                    >
+                      toggle={toggle}>
                       <ModalHeader toggle={toggle}>Update Status</ModalHeader>
                       <ModalBody>
                         <FormGroup>
@@ -256,8 +252,7 @@ const OrderDetails = () => {
                               className="form-control"
                               name="orderStatus"
                               value={orderStatus && orderStatus.orderLevel}
-                              onChange={(e) => setOrderLevel(e.target.value)}
-                            >
+                              onChange={(e) => setOrderLevel(e.target.value)}>
                               <option value="" disabled>
                                 Select Status
                               </option>
@@ -277,8 +272,7 @@ const OrderDetails = () => {
                         <Button
                           color="primary"
                           type="submit"
-                          onClick={() => updateOrderHandler(order._id)}
-                        >
+                          onClick={() => updateOrderHandler(order._id)}>
                           Update
                         </Button>
                         <Button color="secondary" onClick={toggle}>
@@ -502,14 +496,15 @@ const OrderDetails = () => {
             minHeight: "700px",
             minWidth: "500px",
             marginTop: "100px",
-            
-          }}
-        >
+          }}>
           <Card className="bg-secondary shadow">
             <CardHeader className="bg-white border-0">
               <Row className="align-items-center">
                 <Col xs="8">
-                  <h3 className="mb-0">Your Comments ({reviews && reviews.length > 0 ? reviews.length : 0})</h3>
+                  <h3 className="mb-0">
+                    Your Comments (
+                    {reviews && reviews.length > 0 ? reviews.length : 0})
+                  </h3>
                 </Col>
               </Row>
             </CardHeader>
