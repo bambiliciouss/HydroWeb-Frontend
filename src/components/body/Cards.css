@@ -1,0 +1,240 @@
+/* height of the container */
+.leaflet-container {
+  height: 50vh;
+  width: 100%;
+  border-radius: 2rem;
+}
+
+.cluster-icon {
+  background-color: #333;
+  height: 2em;
+  width: 2em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  box-shadow: 0 0 0px 5px #fff;
+}
+
+.custom-dropdown-menu {
+  transform: none !important;
+  top: 35px !important;
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Cards */
+.cards {
+  padding: 4rem;
+  background: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cards__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cards__wrapper {
+  position: relative;
+  margin: 50px 0 45px;
+}
+
+.cards__items {
+  margin-bottom: 24px;
+}
+
+.cards__item {
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 10px;
+}
+
+.cards__item__link {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.cards__item__pic-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 67%;
+  overflow: hidden;
+}
+
+.fade-img {
+  animation-name: fade-img;
+  animation-duration: 2s;
+}
+
+.cards__item__pic-wrap::after {
+  content: attr(data-category);
+  position: absolute;
+  bottom: 0;
+  margin-left: 10px;
+  padding: 6px 8px;
+  max-width: calc((100%) - 60px);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #1f98f4;
+  box-sizing: border-box;
+}
+
+.cards__item__img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+}
+
+.cards__item__img:hover {
+  transform: scale(1.1);
+}
+
+.cards__item__info {
+  padding: 20px 30px 30px;
+}
+
+.cards__item__text {
+  color: #252e48;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .content__blog__container {
+    width: 84%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .cards__items {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .cards__item {
+    margin-bottom: 2rem;
+  }
+}
+
+
+/* Base styles for the cards */
+.cover {
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+  border-radius: 10px; /* Rounded corners for aesthetics */
+}
+
+/* Hover effect to transform the card */
+.cover:hover {
+  transform: scale(1.05); /* Scale the card by 5% on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add a shadow effect on hover */
+}
+
+/* Specific image styles for larger images */
+.w-125 {
+  width: 125%; /* Assuming this makes the image larger */
+}
+
+/* Other styles */
+.bg-gray {
+  background-color: #f0f0f0; /* Generic gray background */
+}
+
+.big-padding {
+  padding: 40px; /* Adjust padding to your needs */
+}
+
+/* Alignment and general structure */
+.text-center {
+  text-align: center;
+}
+
+.pt-3 {
+  padding-top: 3rem;
+}
+
+
+.informs {
+  text-align: center; /* Center the text within the cards */
+}
+
+.cards__container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.section-title {
+  text-align: center; /* Center the section title */
+}
+
+body {
+  background-color: white;
+}
+
+/* Container styles */
+.contact-rooo {
+  background-color: white;
+  padding: 20px;
+}
+
+/* Headings */
+.fs-4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Form row styling */
+.cont-row {
+  margin-bottom: 15px;
+}
+
+/* Input and text area styling */
+.form-control.input-sm {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #007bff; /* Blue color */
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Iframe styling */
+iframe {
+  border: 1px solid #ddd; /* Adds a border to the iframe */
+}
