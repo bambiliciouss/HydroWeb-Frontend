@@ -29,11 +29,6 @@ import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import MetaData from "../layout/MetaData";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getOrderDetails,
-  clearErrors,
-  updateOrder,
-} from "../../actions/orderActions";
 import moment from "moment-timezone";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import ReviewOrder from "./ReviewOrder";
