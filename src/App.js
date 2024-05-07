@@ -1,5 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Home";
+import ContactUs from "components/body/ContactUs";
+import AboutUs from "components/body/AboutUs";
+import Cards from "components/body/Cards";
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 import ProtectedRoute from "./components/route/ProtectedRoute";
@@ -107,7 +110,10 @@ function App() {
     <>
       <Routes>
         <Route path="/notification" element={<Notification/>}/>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />  <Route path="/about-us" element={<AboutUs />}/>
+        <Route path="/Cards" element={<Cards />}/>
+        <Route path="/contact-us" element={<ContactUs/>} />
+        
         <Route path="/login" element={<Login />} exact="true" />
         <Route path="/register" element={<Register />} exact="true" />
         <Route path="/admin/processing" element={<AdminProcessing />} exact="true" />
