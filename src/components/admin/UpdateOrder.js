@@ -385,7 +385,7 @@ const UpdateOrderDetails = () => {
                                           ).toLocaleString()}{" "}
                                           {item.orderLevel} by{" "}
                                           {item.staff
-                                            ? `${item.staff.fname} ${item.staff.lname}`
+                                            ? `${item.staff.fname} ${item.staff.lname} (${item.staff.role})`
                                             : "User"}
                                         </CardText>
                                       ))}

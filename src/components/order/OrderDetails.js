@@ -338,7 +338,7 @@ const OrderDetails = () => {
                                 {new Date(item.datedAt).toLocaleString()}{" "}
                                 {item.orderLevel} by{" "}
                                 {item.staff
-                                  ? `${item.staff.fname} ${item.staff.lname}`
+                                  ? `${item.staff.fname} ${item.staff.lname} (${item.staff.role})`
                                   : "User"}
                               </CardText>
                             ))}
