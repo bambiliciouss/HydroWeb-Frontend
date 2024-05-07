@@ -214,7 +214,7 @@ const OrderDetails = () => {
                       Write a review!
                     </Button>
 
-                    <Modal
+                    <Modal 
                       className="modal-dialog-centered"
                       isOpen={modal}
                       toggle={toggle}>
