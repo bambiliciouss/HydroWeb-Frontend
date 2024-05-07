@@ -182,18 +182,14 @@ const UserList = () => {
     };
 
     users.forEach((user) => {
-      const defaultAddress =
-        user.addresses.find((address) => address.isDefault) || {};
+      let addressString = "No address set";
 
-      let addressString = "No set address";
-      if (
-        defaultAddress.houseNo &&
-        defaultAddress.purokNum &&
-        defaultAddress.streetName &&
-        defaultAddress.barangay &&
-        defaultAddress.city
-      ) {
-        addressString = `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`;
+      if (user.addresses.length > 0) {
+        const defaultAddress =
+          user.addresses.find((address) => address.isDefault) || {};
+        if (Object.keys(defaultAddress).length > 0) {
+          addressString = `${defaultAddress.houseNo} ${defaultAddress.purokNum} ${defaultAddress.streetName} ${defaultAddress.barangay} ${defaultAddress.city}`;
+        }
       }
 
       data.rows.push({
