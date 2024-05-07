@@ -466,7 +466,6 @@ export const getEmployeeBranch = (id) => async (dispatch) => {
   }
 };
 
-
 export const getBranchUsers = (id) => async (dispatch) => {
   try {
     dispatch({ type: ALL_CUSTOMER_REQUEST });
@@ -478,6 +477,8 @@ export const getBranchUsers = (id) => async (dispatch) => {
       type: ALL_CUSTOMER_SUCCESS,
       payload: data.usersWithTransactions,
     });
+
+    console.log(data.usersWithTransactions);
   } catch (error) {
     dispatch({
       type: ALL_CUSTOMER_FAIL,
