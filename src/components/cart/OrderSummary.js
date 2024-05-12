@@ -89,6 +89,8 @@ const OrderSummary = () => {
     purokNum: defaultAddress.purokNum,
     barangay: defaultAddress.barangay,
     city: defaultAddress.city,
+    latitude:defaultAddress.latitude,
+    longitude:defaultAddress.longitude,
   };
 
   const itemsPrice = cartItems.reduce(
