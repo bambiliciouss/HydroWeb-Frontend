@@ -36,7 +36,6 @@ import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import {
   CREATE_BARANGAYHEALTH_RESET,
   DELETE_BARANGAYHEALTH_RESET,
-  
 } from "constants/barangayHealthConstants";
 import {
   createBarangayHealth,
@@ -161,7 +160,7 @@ const BarangayHealthList = () => {
         },
         {
           label: "Expiry Date",
-          field: "expiryDate"
+          field: "expiryDate",
         },
         {
           label: "Actions",
@@ -176,7 +175,7 @@ const BarangayHealthList = () => {
 
     // barangayhealth.forEach((barangayhealths) => {
     sortedData.forEach((barangayhealths) => {
-      const expiryDate = new Date(barangayhealths.expiryDate)
+      const expiryDate = new Date(barangayhealths.expiryDate);
       const dateObject = new Date(barangayhealths.dateVisited);
       data.rows.push({
         date: dateObject.toLocaleDateString(),
@@ -348,6 +347,13 @@ const BarangayHealthList = () => {
                   </Modal>
                 </Col>
               </Row>
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="barangayHealthTable"
+                filename="barangay_health_records"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -361,14 +367,6 @@ const BarangayHealthList = () => {
               />
             </CardBody>
           </Card>
-
-          {/* <ReactHTMLTableToExcel
-            className="btn btn-success"
-            table="barangayHealthTable"
-            filename="barangay_health_records"
-            sheet="sheet 1"
-            buttonText="Export to Excel"
-          /> */}
         </Container>
         <Container fluid>
           <AdminFooter />

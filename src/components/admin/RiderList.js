@@ -53,6 +53,7 @@ import {
 } from "reactstrap";
 import { CREATE_STORESTAFF_RESET } from "../../constants/storestaffConstants";
 import { getStoreDetails } from "actions/storebranchActions";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 const RiderList = (args) => {
   const dispatch = useDispatch();
 
@@ -829,6 +830,13 @@ const RiderList = (args) => {
                   </Modal>
                 </Col>
               </Row>
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="ridertable"
+                filename="list-of-rider"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -838,6 +846,7 @@ const RiderList = (args) => {
                 hover
                 noBottomColumns
                 responsive
+                id="ridertable"
               />
             </CardBody>
           </Card>

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"; // Import the useForm hook
 
 import { MDBDataTable } from "mdbreact";
 import swal from "sweetalert";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import {
   Button,
   Card,
@@ -169,7 +170,7 @@ const BusinessPermitList = () => {
         },
         {
           label: "Expiry Date",
-          field: "expiryDate"
+          field: "expiryDate",
         },
         {
           label: "Actions",
@@ -363,6 +364,13 @@ const BusinessPermitList = () => {
                   </Modal>
                 </Col>
               </Row>
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="businesspermittable"
+                filename="businesspermit-records"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -372,6 +380,7 @@ const BusinessPermitList = () => {
                 hover
                 noBottomColumns
                 responsive
+                id="businesspermittable"
               />
             </CardBody>
           </Card>

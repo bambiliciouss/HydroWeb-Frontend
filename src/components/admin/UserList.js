@@ -11,7 +11,7 @@ import MetaData from "components/layout/MetaData";
 import AdminNavbar from "components/Navbars/AdminNavbar";
 import Header2 from "components/Headers/Header2";
 import AdminFooter from "components/Footers/AdminFooter.js";
-
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import { DELETE_USER_RESET } from "../../constants/userConstants";
 import swal from "sweetalert";
 import {
@@ -42,7 +42,7 @@ import {
 } from "reactstrap";
 import * as htmlToImage from "html-to-image";
 import QRCode from "react-qr-code";
-import { getAllStaff,getBranchUsers } from "../../actions/adminAction";
+import { getAllStaff, getBranchUsers } from "../../actions/adminAction";
 import { getStoreDetails } from "actions/storebranchActions";
 const UserList = () => {
   const dispatch = useDispatch();
@@ -258,10 +258,19 @@ const UserList = () => {
           <Card className="bg-secondary shadow">
             <CardHeader className="bg-white border-0">
               <Row className="align-items-center">
-                <Col xs="8">
+                <Col xs="10">
                   <h3 className="mb-0">
                     List of Customers ( {storeBranch.branch} )
                   </h3>
+                </Col>
+                <Col xs="2">
+                  <ReactHTMLTableToExcel
+                    className="btn btn-success"
+                    table="customertable"
+                    filename="list-of-customer"
+                    sheet="sheet 1"
+                    buttonText="Export to Excel"
+                  />
                 </Col>
               </Row>
             </CardHeader>
@@ -275,6 +284,7 @@ const UserList = () => {
                 responsive
                 // noRecordsFoundLabel={false}
                 // searching={false}
+                id="customertable"
               />
             </CardBody>
           </Card>

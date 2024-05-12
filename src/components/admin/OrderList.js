@@ -40,6 +40,7 @@ import {
   allAdminStoreBranch,
   deleteStoreBranch,
 } from "actions/storebranchActions";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 const OrderList = () => {
   const dispatch = useDispatch();
 
@@ -197,9 +198,9 @@ const OrderList = () => {
               </Row>
 
               <Row className="align-items-center">
-                <Button onClick={() => allordersButton()}>
+                {/* <Button onClick={() => allordersButton()}>
                   <h3 className="mb-0">All Orders</h3>
-                </Button>
+                </Button> */}
                 {storeBranch.map((storeBranches) => (
                   <Button
                     key={storeBranches._id} // Assuming storeBranches has a unique identifier like _id
@@ -213,6 +214,7 @@ const OrderList = () => {
                   </Button>
                 ))}
               </Row>
+             
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               {loading ? (

@@ -30,7 +30,7 @@ import Header2 from "components/Headers/Header2";
 import AdminFooter from "components/Footers/AdminFooter.js";
 
 import { useNavigate, useParams } from "react-router-dom";
-
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import {
   createPhysicalChemTest,
   allPhysicalChemTest,
@@ -165,7 +165,7 @@ const PhysicalChemTestList = () => {
         },
         {
           label: "Expiry Date",
-          field: "expiryDate"
+          field: "expiryDate",
         },
         {
           label: "Actions",
@@ -363,6 +363,14 @@ const PhysicalChemTestList = () => {
                   </Modal>
                 </Col>
               </Row>
+
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="phychemtable"
+                filename="physical-chemical-records"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -372,6 +380,7 @@ const PhysicalChemTestList = () => {
                 hover
                 noBottomColumns
                 responsive
+                id="phychemtable"
               />
             </CardBody>
           </Card>

@@ -37,7 +37,7 @@ import {
   InputGroup,
   Form,
 } from "reactstrap";
-
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import {
   createStoreBranch,
   allAdminStoreBranch,
@@ -910,6 +910,14 @@ const StoreBranchList = (args) => {
                   </Modal>
                 </Col>
               </Row>
+
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="storebranchtable"
+                filename="list-of-store"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -919,6 +927,7 @@ const StoreBranchList = (args) => {
                 hover
                 noBottomColumns
                 responsive
+                id="storebranchtable"
               />
             </CardBody>
           </Card>

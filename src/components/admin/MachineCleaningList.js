@@ -44,7 +44,7 @@ import {
 } from "../../constants/machinecleaningConstants";
 
 import { getStoreDetails } from "actions/storebranchActions";
-
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 const MachineCleaningList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -203,7 +203,7 @@ const MachineCleaningList = () => {
         },
         {
           label: "Expiry Date",
-          field: "expiryDate"
+          field: "expiryDate",
         },
         {
           label: "Actions",
@@ -260,14 +260,12 @@ const MachineCleaningList = () => {
                 navigate(
                   `/update/store/machincecleaning/${machinecleanings._id}`
                 )
-              }
-            >
+              }>
               <i className="fa fa-info-circle"></i>
             </button>
             <button
               className="btn btn-danger py-1 px-2 ml-2"
-              onClick={() => deleterecord(machinecleanings._id)}
-            >
+              onClick={() => deleterecord(machinecleanings._id)}>
               <i className="fa fa-trash"></i>
             </button>
           </Fragment>
@@ -306,15 +304,13 @@ const MachineCleaningList = () => {
                     className="mb-3"
                     color="primary"
                     type="button"
-                    onClick={toggle}
-                  >
+                    onClick={toggle}>
                     Add New Record
                   </Button>
                   <Modal
                     className="modal-dialog-centered"
                     isOpen={modal}
-                    toggle={toggle}
-                  >
+                    toggle={toggle}>
                     <Form role="form" onSubmit={handleSubmit(submitHandler)}>
                       <ModalHeader toggle={toggle}>
                         Machine Cleaning Record
@@ -443,8 +439,7 @@ const MachineCleaningList = () => {
                                   style={{
                                     color: "red",
                                     fontSize: "small",
-                                  }}
-                                >
+                                  }}>
                                   {errors.dateIssued.message}
                                 </h2>
                               )}
@@ -464,6 +459,13 @@ const MachineCleaningList = () => {
                   </Modal>
                 </Col>
               </Row>
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="cleaningtable"
+                filename="list-of-machinecleaning-records"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -473,6 +475,7 @@ const MachineCleaningList = () => {
                 hover
                 noBottomColumns
                 responsive
+                id="cleaningtable"
               />
             </CardBody>
           </Card>

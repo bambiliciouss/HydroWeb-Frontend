@@ -63,7 +63,7 @@ import {
 } from "../../constants/walkinPOSConstants";
 
 import { getStoreDetails } from "actions/storebranchActions";
-
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 const UpdateProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -325,6 +325,14 @@ const UpdateProduct = () => {
               <div className="text-left mb-3">
                 <h2>Total Stock Quantity: {totalStockQuantity}</h2>
               </div>
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="stocktable"
+                filename="list-of-product-stock"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
+
               <Modal isOpen={isModalOpen} toggle={toggleModal}>
                 <ModalHeader toggle={toggleModal}>
                   Add Walk In Sales for other type of gallons
@@ -380,6 +388,7 @@ const UpdateProduct = () => {
                 noBottomColumns
                 responsive
                 searching={false}
+                id="stocktable"
               />
             </CardBody>
           </Card>

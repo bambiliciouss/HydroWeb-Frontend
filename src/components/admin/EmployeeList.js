@@ -24,7 +24,7 @@ import {
   singleStoreStaff,
 } from "../../actions/storestaffAction";
 import { allStoreBranch } from "actions/storebranchActions";
-
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import {
   Button,
   Card,
@@ -776,6 +776,13 @@ const EmployeeList = (args) => {
                   </Modal>
                 </Col>
               </Row>
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="employeetable"
+                filename="list-of-employee"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -785,6 +792,7 @@ const EmployeeList = (args) => {
                 hover
                 noBottomColumns
                 responsive
+                id="employeetable"
               />
             </CardBody>
           </Card>

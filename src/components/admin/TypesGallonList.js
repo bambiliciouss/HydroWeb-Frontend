@@ -37,7 +37,7 @@ import {
   clearErrors,
 } from "actions/typesgallonAction";
 import { getStoreDetails } from "actions/storebranchActions";
-
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 const TypesGallonList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Use useNavigate hook from react-router-dom
@@ -355,6 +355,13 @@ const TypesGallonList = () => {
                   </Modal>
                 </Col>
               </Row>
+              <ReactHTMLTableToExcel
+                className="btn btn-success"
+                table="typestable"
+                filename="list-of-gallontype"
+                sheet="sheet 1"
+                buttonText="Export to Excel"
+              />
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
               <MDBDataTable
@@ -364,6 +371,7 @@ const TypesGallonList = () => {
                 hover
                 noBottomColumns
                 responsive
+                id="typestable"
               />
             </CardBody>
           </Card>
