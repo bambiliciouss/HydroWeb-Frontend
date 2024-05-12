@@ -244,7 +244,7 @@ const OrderDetails = () => {
                       className="mb-3"
                       color="primary"
                       type="button"
-                      onClick={() => myReceipt()}>
+                      onClick={() => myReceipt(id)}>
                     Get my E-Receipt
                     </Button>
                   </Col>
