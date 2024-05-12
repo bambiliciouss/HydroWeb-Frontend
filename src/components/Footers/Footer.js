@@ -32,7 +32,7 @@ function Footer() {
         </p>
       </section>
 
-      <div class='footer-links'>
+      {/* <div class='footer-links'>
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>About Us</h2>
@@ -56,7 +56,7 @@ function Footer() {
             <Link to='/'>Youtube</Link>
             <Link to='/'>Twitter</Link>
           </div>
-      </div>
+      </div> */}
 
       <section class='social-media'>
         <div class='social-media-wrap'>

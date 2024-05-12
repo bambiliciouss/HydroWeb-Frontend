@@ -260,19 +260,19 @@ const AdminNavbar = () => {
               <span className="navbar-toggler-icon" />
             </button>
 
-            <NavbarBrand to="/cards#cards-section" tag={Link}>
+            {/* <NavbarBrand to="/cards#cards-section" tag={Link}>
               PRODUCTS
             </NavbarBrand>
             <button className="navbar-toggler" id="navbar-collapse-main">
               <span className="navbar-toggler-icon" />
-            </button>
+            </button> */}
 
-            <NavbarBrand to="/contact-us" tag={Link}>
+            {/* <NavbarBrand to="/contact-us" tag={Link}>
               CONTACT US
             </NavbarBrand>
             <button className="navbar-toggler" id="navbar-collapse-main">
               <span className="navbar-toggler-icon" />
-            </button>
+            </button> */}
             <Nav className="ml-auto align-items-center d-none d-md-flex" navbar>
               {user ? (
                 <>

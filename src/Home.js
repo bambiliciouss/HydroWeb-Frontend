@@ -72,7 +72,7 @@ const Home = () => {
           </div>
         </section>
         <AboutUs />
-        <Cards />
+        {/* <Cards /> */}
         <Footer />
 
       </main>
