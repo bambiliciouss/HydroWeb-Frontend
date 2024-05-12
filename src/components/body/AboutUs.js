@@ -73,7 +73,7 @@ const AboutUs = () => {
               <h1 className="display-3 text-black">Why Choose Us?</h1>
             </div>
             <Row className="mt-5">
-              <Col lg="4" md="6" className="mb-4">
+              <Col lg="6" md="6" className="mb-4">
                 <div className="cover text-center p-4 shadow-md bg-white">
                   <img
                     className="w-25"
@@ -106,7 +106,7 @@ const AboutUs = () => {
                   </p>
                 </div>
               </Col> */}
-              <Col lg="4" md="6" className="mb-4">
+              <Col lg="6" md="6" className="mb-4">
                 <div className="cover text-center p-4 shadow-md bg-white">
                   <img
                     className="w-25"
