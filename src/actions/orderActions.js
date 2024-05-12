@@ -16,6 +16,9 @@ import {
   UPDATE_ORDER_SUCCESS,
   UPDATE_ORDER_REQUEST,
   UPDATE_ORDER_FAIL,
+  RECEIPT_FAIL,
+  RECEIPT_REQUEST,
+  RECEIPT_SUCCESS,
 } from "../constants/orderConstants";
 import socket from "../socket";
 
@@ -226,6 +229,37 @@ export const allOrdersRider = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: ALL_ORDERS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+
+export const orderReceipt = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: RECEIPT_REQUEST });
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    };
+
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_API}/api/v1/receipt/${id}`,
+      {},
+      config
+    );
+
+    dispatch({
+      type: RECEIPT_SUCCESS,
+      payload: data.message,
+    });
+  } catch (error) {
+    dispatch({
+      type: RECEIPT_FAIL,
+
       payload: error.response.data.message,
     });
   }

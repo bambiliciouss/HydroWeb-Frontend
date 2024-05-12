@@ -34,7 +34,8 @@ import {
   allOrdersReducer,
   orderDetailsReducer,
   orderReducer,
-  allOrdersStaffReducer
+  allOrdersStaffReducer,
+  receiptReducer
 } from "reducers/orderReducers";
 
 import { cartReducer, cartProductReducer } from "reducers/cartReducers";
@@ -178,6 +179,7 @@ const reducers = combineReducers({
   allOrdersStaff:allOrdersStaffReducer,
   orderDetails: orderDetailsReducer,
   order: orderReducer,
+  receipt:receiptReducer,
   userDetails: userDetailsReducer,
   storeDetails: storeDetailsReducer,
 

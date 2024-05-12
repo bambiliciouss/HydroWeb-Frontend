@@ -33,6 +33,7 @@ import {
   getOrderDetails,
   clearErrors,
   updateOrder,
+  orderReceipt,
 } from "../../actions/orderActions";
 import moment from "moment-timezone";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
@@ -160,6 +161,10 @@ const OrderDetails = () => {
 
   const latestOrderStatus = getLatestOrderStatus(orderStatus);
 
+  const myReceipt = async (id) => {
+    dispatch(sendReceipt(id));
+  };
+
   return (
     <>
       <AuthNavbar />
@@ -214,7 +219,7 @@ const OrderDetails = () => {
                       Write a review!
                     </Button>
 
-                    <Modal 
+                    <Modal
                       className="modal-dialog-centered"
                       isOpen={modal}
                       toggle={toggle}>
@@ -231,7 +236,16 @@ const OrderDetails = () => {
                   </Col>
                 ) : latestOrderStatus &&
                   latestOrderStatus.orderLevel === "Completed" ? (
-                  <p>Order is completed.</p>
+                  <Col lg="6" xl="3">
+                    <Button
+                      block
+                      className="mb-3"
+                      color="primary"
+                      type="button"
+                      onClick={myReceipt()}>
+                    
+                    </Button>
+                  </Col>
                 ) : null}
                 {user && user.role === "admin" && (
                   <Col md="4">

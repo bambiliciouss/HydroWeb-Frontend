@@ -16,6 +16,9 @@ import {
   UPDATE_ORDER_SUCCESS,
   UPDATE_ORDER_RESET,
   UPDATE_ORDER_FAIL,
+  RECEIPT_FAIL,
+  RECEIPT_REQUEST,
+  RECEIPT_SUCCESS,
 } from "../constants/orderConstants";
 
 export const newOrderReducer = (state = {}, action) => {
@@ -206,6 +209,51 @@ export const allOrdersStaffReducer = (state = { orders: [] }, action) => {
       return {
         ...state,
         error: null,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const receiptReducer = (state = {}, action) => {
+  switch (action.type) {
+    case RECEIPT_REQUEST:
+      return {
+        ...state,
+
+        loading: true,
+
+        error: null,
+        success: false,
+      };
+
+    case RECEIPT_SUCCESS:
+      return {
+        ...state,
+
+        loading: false,
+
+        message: action.payload,
+        success: false,
+      };
+
+    case RECEIPT_FAIL:
+      return {
+        ...state,
+
+        loading: false,
+
+        error: action.payload,
+        success: false,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+
+        error: null,
+        success: false,
       };
 
     default:
