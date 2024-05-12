@@ -50,6 +50,7 @@ import {
 } from "constants/adminConstants";
 import { deleteReview } from "actions/adminAction";
 import { updateSingleReview } from "actions/adminAction";
+import swal from "sweetalert";
 
 const OrderDetails = () => {
   const navigate = useNavigate();
@@ -161,8 +162,9 @@ const OrderDetails = () => {
 
   const latestOrderStatus = getLatestOrderStatus(orderStatus);
 
-  const myReceipt = async (id) => {
+  const myReceipt = (id) => {
     dispatch(orderReceipt(id));
+    swal("E-Receipt sent to your email!", "", "success");
   };
 
   return (
@@ -242,8 +244,8 @@ const OrderDetails = () => {
                       className="mb-3"
                       color="primary"
                       type="button"
-                      onClick={myReceipt()}>
-                    
+                      onClick={() => myReceipt()}>
+                    Get my E-Receipt
                     </Button>
                   </Col>
                 ) : null}
