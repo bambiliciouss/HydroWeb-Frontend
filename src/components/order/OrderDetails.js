@@ -162,7 +162,7 @@ const OrderDetails = () => {
   const latestOrderStatus = getLatestOrderStatus(orderStatus);
 
   const myReceipt = async (id) => {
-    dispatch(sendReceipt(id));
+    dispatch(orderReceipt(id));
   };
 
   return (
