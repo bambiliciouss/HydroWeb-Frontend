@@ -95,8 +95,8 @@ const Cart = () => {
         style={{
           minHeight: "700px",
           marginTop: "100px",
-          marginLeft: "5%",
-          marginRight: "5%",
+          marginLeft: "10%",
+          marginRight: "10%",
         }}>
         <CheckoutSteps store gallon />
         <div className="col-md-12">
@@ -280,9 +280,9 @@ const Cart = () => {
                                         ₱{itemP.price}.00
                                       </span>
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-4 d-flex align-items-center justify-content-between">
                                       <button
-                                         className="btn btn-danger"
+                                        className="btn btn-danger mr-2"
                                         onClick={() =>
                                           decreasePQty(
                                             itemP.product,
@@ -293,9 +293,9 @@ const Cart = () => {
                                       </button>
 
                                       <input
-                                        // type="number"
-                                        className="form-control"
-                                        style={{ width: "50px" }}
+                                        type="number"
+                                        className="form-control mx-2"
+                                        style={{ width: "60px" }}
                                         value={itemP.quantity}
                                         onChange={(e) =>
                                           updateQuantity(
@@ -317,7 +317,7 @@ const Cart = () => {
                                       </button>
                                     </div>
 
-                                    <div className="col-2">
+                                    <div className="col-2 d-flex align-items-center justify-content-between">
                                       <i
                                         className="fa fa-trash btn btn-danger delete-cart-item"
                                         onClick={() =>
