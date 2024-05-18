@@ -75,12 +75,12 @@ const GallonOrder = () => {
 
   const addToCart = (id) => {
     dispatch(addItemToCart(id, quantity));
-    //swal("Item Added to Cart", "", "success");
-    swal({
-      title: "Item Added to Cart",
-      text: "You clicked the button!",
-      icon: "success"
-    });
+    swal("Item Added to Cart", "", "success");
+    // swal({
+    //   title: "Item Added to Cart",
+    //   text: "You clicked the button!",
+    //   icon: "success"
+    // });
   };
 
   const addToCartProduct = (id) => {
