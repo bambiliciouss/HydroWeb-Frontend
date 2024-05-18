@@ -95,8 +95,8 @@ const Cart = () => {
         style={{
           minHeight: "700px",
           marginTop: "100px",
-          marginLeft: "10%",
-          marginRight: "10%",
+          marginLeft: "5%",
+          marginRight: "5%",
         }}>
         <CheckoutSteps store gallon />
         <div className="col-md-12">
@@ -280,7 +280,7 @@ const Cart = () => {
                                         ₱{itemP.price}.00
                                       </span>
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-5">
                                       <button
                                           className="btn btn-danger mr-2"
                                         onClick={() =>
