@@ -191,7 +191,7 @@ const Cart = () => {
                                 </div> */}
                                 <div className="cart-item" key={item.gallon_id}>
                                   <div className="row">
-                                    <div className="col-3">
+                                    <div className="col-4">
                                       <span className="item-type">
                                         {item.type} (REFILL)
                                       </span>
@@ -254,7 +254,7 @@ const Cart = () => {
                                   className="cart-item"
                                   key={itemP.gallon_id}>
                                   <div className="row">
-                                    <div className="col-5">
+                                    <div className="col-4">
                                       <span className="item-type">
                                         {itemP.type.typeofGallon} (NEW
                                         CONTAINER)
@@ -280,7 +280,7 @@ const Cart = () => {
                                         ₱{itemP.price}.00
                                       </span>
                                     </div>
-                                    <div className="col-3 d-flex align-items-center justify-content-between">
+                                    <div className="col-4">
                                       <button
                                           className="btn btn-danger mr-2"
                                         onClick={() =>
