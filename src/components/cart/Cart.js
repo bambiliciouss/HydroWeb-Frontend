@@ -294,8 +294,8 @@ const Cart = () => {
 
                                       <input
                                         // type="number"
-                                        className="form-control mx-2"
-                                        style={{ width: "60px" }}
+                                        className="form-control"
+                                        style={{ width: "50px" }}
                                         value={itemP.quantity}
                                         onChange={(e) =>
                                           updateQuantity(
