@@ -280,9 +280,9 @@ const Cart = () => {
                                         ₱{itemP.price}.00
                                       </span>
                                     </div>
-                                    <div className="col-5">
+                                    <div className="col-4">
                                       <button
-                                          className="btn btn-danger mr-2"
+                                         className="btn btn-danger"
                                         onClick={() =>
                                           decreasePQty(
                                             itemP.product,
@@ -293,9 +293,9 @@ const Cart = () => {
                                       </button>
 
                                       <input
-                                        type="number"
+                                        // type="number"
                                         className="form-control mx-2"
-                                        style={{ width: "60px" }}
+                                        // style={{ width: "60px" }}
                                         value={itemP.quantity}
                                         onChange={(e) =>
                                           updateQuantity(
