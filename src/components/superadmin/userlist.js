@@ -114,7 +114,7 @@ const SuperAdminUserList = () => {
       dispatch({ type: DELETE_USER_RESET });
     }
 
-    setQrDetails(`http://localhost:3000/details/${selectedUser}`);
+    setQrDetails(`https://crownprincess.online/details/${selectedUser}`);
   }, [dispatch, isDeleted, navigate, selectedUser, activeStoreBranch]);
   // console.log("result", qrdetails);
 
