@@ -57,6 +57,7 @@
     "leaflet": "^1.9.4",
     "leaflet-draw": "^1.0.4",
     "leaflet-geosearch": "^3.11.1",
+    "luxon": "^3.4.4",
     "mdbreact": "^5.2.0",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.45",

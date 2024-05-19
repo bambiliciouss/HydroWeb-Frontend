@@ -17,6 +17,7 @@ import MetaData from "../layout/MetaData";
 import { useNavigate } from "react-router-dom";
 import CheckoutSteps from "./CheckoutSteps";
 import swal from "sweetalert";
+
 const Payment = () => {
   const navigate = useNavigate();
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
