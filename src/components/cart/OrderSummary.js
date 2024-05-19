@@ -30,7 +30,6 @@ const OrderSummary = () => {
   const { error } = useSelector((state) => state.newOrder);
   const [notes, setNotes] = useState();
 
-
   useEffect(() => {
     //console.log(user)
     if (error) {
@@ -89,8 +88,8 @@ const OrderSummary = () => {
     purokNum: defaultAddress.purokNum,
     barangay: defaultAddress.barangay,
     city: defaultAddress.city,
-    latitude:defaultAddress.latitude,
-    longitude:defaultAddress.longitude,
+    latitude: defaultAddress.latitude,
+    longitude: defaultAddress.longitude,
   };
 
   const itemsPrice = cartItems.reduce(
@@ -118,6 +117,20 @@ const OrderSummary = () => {
     //   id: "pi_1DpdYh2eZvKYlo2CYIynhU32",
     //   status: "succeeded",
     // };
+
+    const now = DateTime.now().setZone("Asia/Manila");
+    const openingTime = now.set({ hour: 8, minute: 0 });
+    const closingTime = now.set({ hour: 17, minute: 30 });
+
+    if (now < openingTime || now > closingTime) {
+      swal(
+        "We are not accepting orders outside of 8:00 AM to 5:30 PM.",
+        "",
+        "warning"
+      );
+      return;
+    }
+
     try {
       await dispatch(createOrder(order));
       // socket.emit("newOrder", {message: `New Order Placed: `, branch: order.selectedStore.store, title: `${order.selectedStore.branchNo}`, order: order});
