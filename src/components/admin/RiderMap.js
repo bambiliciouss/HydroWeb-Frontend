@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState,useCallback  } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -55,42 +55,32 @@ import { CREATE_STORESTAFF_RESET } from "../../constants/storestaffConstants";
 import { getStoreDetails } from "actions/storebranchActions";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, LoadScript } from "@react-google-maps/api";
+
+const containerStyle = {
+  width: "400px",
+  height: "400px",
+};
+
+const center = {
+  lat: -34.397,
+  lng: 150.644,
+};
 
 const RiderMap = (args) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const { id } = useParams();
 
-  const containerStyle = {
-    width: "1000px",
-    height: "500px",
-  };
+  const [map, setMap] = useState(null);
 
-  const center = {
-    lat: -3.745,
-    lng: -38.523,
-  };
+  const onLoad = useCallback(function callback(map) {
+    setMap(map)
+  }, [])
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCKllvUiu_RD2Yphmk7gSPOTuXaLjQjRuA",
-  });
-
-  const [map, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
-    setMap(map);
-  }, []);
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
-
+  const onUnmount = useCallback(function callback(map) {
+    setMap(null)
+  }, [])
   return (
     <>
       <MetaData title={"Rider Location"} />
@@ -109,21 +99,21 @@ const RiderMap = (args) => {
             <CardHeader className="bg-white border-0">
               <Row className="align-items-center">
                 <Col xs="8">
-                  <h3 className="mb-0">Rider Location</h3>
+                <h3 className="mb-0">Rider Location</h3>
                 </Col>
               </Row>
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
-              {isLoaded ? (
+            
+              <LoadScript googleMapsApiKey="AIzaSyCKllvUiu_RD2Yphmk7gSPOTuXaLjQjRuA">
                 <GoogleMap
                   mapContainerStyle={containerStyle}
                   center={center}
                   zoom={10}
                   onLoad={onLoad}
-                  onUnmount={onUnmount}>
-                  {/* Child components, such as markers, info windows, etc. */}
-                </GoogleMap>
-              ) : null}
+                  onUnmount={onUnmount}
+                />
+              </LoadScript>
             </CardBody>
           </Card>
         </Container>
