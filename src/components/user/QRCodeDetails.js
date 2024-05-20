@@ -18,6 +18,7 @@ import {
 } from "reactstrap";
 import { getUserQRDetails } from "actions/userActions";
 import { AdminallAddress } from "actions/addressAction";
+import { recentOrderStatus } from "../../actions/orderActions";
 const QRCodeDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -28,9 +29,13 @@ const QRCodeDetails = () => {
   const { useraddress } = useSelector((state) => state.allAddress);
 
   const { user } = useSelector((state) => state.userDetails);
+
+  const { orders } = useSelector((state) => state.allOrders);
   React.useEffect(() => {
     dispatch(getUserQRDetails(id));
     dispatch(AdminallAddress(id));
+    dispatch(recentOrderStatus(id));
+    console.log("QR STATUS", orders);
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);

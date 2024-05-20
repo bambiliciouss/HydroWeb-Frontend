@@ -264,3 +264,22 @@ export const orderReceipt = (id) => async (dispatch) => {
     });
   }
 };
+
+export const recentOrderStatus = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: ALL_ORDERS_REQUEST });
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API}/api/v1/user/qrstatus/${id}`,
+      { withCredentials: true }
+    );
+    dispatch({
+      type: ALL_ORDERS_SUCCESS,
+      payload: data.latestOrderStatusLevel,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_ORDERS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
