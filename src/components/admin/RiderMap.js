@@ -85,7 +85,7 @@ const RiderMap = (args) => {
   });
 
   const containerStyle = {
-    width: "400px",
+    width: "auto",
     height: "400px",
   };
 
