@@ -272,9 +272,11 @@ export const recentOrderStatus = (id) => async (dispatch) => {
       `${process.env.REACT_APP_API}/api/v1/user/qrstatus/${id}`,
       { withCredentials: true }
     );
+
+    console.log("userdetails", data.latestOrderStatusLevel);
     dispatch({
       type: ALL_ORDERS_SUCCESS,
-      payload: data.latestOrderStatusLevel,
+      payload: data,
     });
   } catch (error) {
     dispatch({

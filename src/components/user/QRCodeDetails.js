@@ -35,7 +35,7 @@ const QRCodeDetails = () => {
     dispatch(getUserQRDetails(id));
     dispatch(AdminallAddress(id));
     dispatch(recentOrderStatus(id));
-    console.log("QR STATUS", orders);
+    //console.log("QR STATUS", orders);
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [location]);
