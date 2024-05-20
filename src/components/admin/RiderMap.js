@@ -55,9 +55,14 @@ import { CREATE_STORESTAFF_RESET } from "../../constants/storestaffConstants";
 import { getStoreDetails } from "actions/storebranchActions";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
-import { GoogleMap, useJsApiLoader, LoadScript } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  useJsApiLoader,
+  LoadScript,
+  Marker,
+} from "@react-google-maps/api";
 import { mapOptions } from "./MapConfiguration";
-
+import { riderLoc } from "actions/userActions";
 const containerStyle = {
   width: "400px",
   height: "400px",
@@ -72,6 +77,7 @@ const RiderMap = (args) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const { id } = useParams();
+  const { riderlatlong } = useSelector((state) => state.riderLocation);
 
   const { isLoaded } = useJsApiLoader({
     id: mapOptions.googleMapsApiKey,
@@ -87,6 +93,11 @@ const RiderMap = (args) => {
     lat: 14.494066571370974,
     lng: 121.0509383094235,
   };
+
+  useEffect(() => {
+    dispatch(riderLoc(id));
+    console.log("Location", riderlatlong);
+  }, [dispatch, riderlatlong]);
 
   return (
     <>
@@ -114,9 +125,17 @@ const RiderMap = (args) => {
               {isLoaded && (
                 <GoogleMap
                   mapContainerStyle={containerStyle}
-                  center={center}
-                  zoom={10}>
-                 
+                  center={{
+                    lat: riderlatlong.latitude || 0,
+                    lng: riderlatlong.longitude || 0,
+                  }}
+                  zoom={18}>
+                  <Marker
+                    position={{
+                      lat: riderlatlong.latitude || 0,
+                      lng: riderlatlong.longitude || 0,
+                    }}
+                  />
                 </GoogleMap>
               )}
             </CardBody>

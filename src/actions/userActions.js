@@ -42,6 +42,9 @@ import {
   ALL_EMPLOYEES_REQUEST,
   ALL_EMPLOYEES_SUCCESS,
   ALL_EMPLOYEES_FAIL,
+  RIDERS_REQUEST,
+  RIDERS_SUCCESS,
+  RIDERS_FAIL,
 } from "../constants/userConstants";
 
 export const newregister = (userData) => async (dispatch) => {
@@ -655,6 +658,26 @@ export const getStaffDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: USER_DETAILS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+
+export const riderLoc = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: RIDERS_REQUEST });
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API}/api/v1/rider/location/${id}`,
+      { withCredentials: true }
+    );
+    dispatch({
+      type: RIDERS_SUCCESS,
+      payload: data.riderloc,
+    });
+  } catch (error) {
+    dispatch({
+      type: RIDERS_FAIL,
       payload: error.response.data.message,
     });
   }

@@ -48,6 +48,9 @@ import {
   ALL_EMPLOYEES_REQUEST,
   ALL_EMPLOYEES_SUCCESS,
   ALL_EMPLOYEES_FAIL,
+  RIDERS_REQUEST,
+  RIDERS_SUCCESS,
+  RIDERS_FAIL,
 } from "../constants/userConstants";
 
 export const authReducer = (state = { user: {} }, action) => {
@@ -332,6 +335,39 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
       };
 
     case USER_DETAILS_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const RiderLocationReducer = (state = { riderlatlong: [] }, action) => {
+  switch (action.type) {
+    case RIDERS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case RIDERS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        riderlatlong: action.payload,
+      };
+
+    case RIDERS_FAIL:
       return {
         ...state,
         loading: false,

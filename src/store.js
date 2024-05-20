@@ -12,6 +12,7 @@ import {
   allUsersReducer,
   userDetailsReducer,
   allStaffReducer,
+  RiderLocationReducer,
 } from "./reducers/userReducers";
 
 import {
@@ -35,7 +36,7 @@ import {
   orderDetailsReducer,
   orderReducer,
   allOrdersStaffReducer,
-  receiptReducer
+  receiptReducer,
 } from "reducers/orderReducers";
 
 import { cartReducer, cartProductReducer } from "reducers/cartReducers";
@@ -124,10 +125,8 @@ import {
   adminSalesBarangayReducer,
   adminStaffPerformanceReducer,
   adminCurrentBranchSalesReducer,
-  employeeOrderSalesReducer
+  employeeOrderSalesReducer,
 } from "reducers/adminReducers";
-
-
 
 import {
   allUsersSAReducer,
@@ -150,9 +149,10 @@ const reducers = combineReducers({
   adminOrderGallonType: adminOrderGallonTypeReducer,
   adminSalesBarangay: adminSalesBarangayReducer,
   adminStaffPerformance: adminStaffPerformanceReducer,
-  adminCurrentBranchSales: adminCurrentBranchSalesReducer, 
+  adminCurrentBranchSales: adminCurrentBranchSalesReducer,
   employeeBranch: employeeBranchReducer,
   employeeOrderSales: employeeOrderSalesReducer,
+  riderLocation: RiderLocationReducer,
 
   review: reviewReducer,
   adminReview: adminReviewReducer,
@@ -176,10 +176,10 @@ const reducers = combineReducers({
   newOrder: newOrderReducer,
   myOrders: myOrdersReducer,
   allOrders: allOrdersReducer,
-  allOrdersStaff:allOrdersStaffReducer,
+  allOrdersStaff: allOrdersStaffReducer,
   orderDetails: orderDetailsReducer,
   order: orderReducer,
-  receipt:receiptReducer,
+  receipt: receiptReducer,
   userDetails: userDetailsReducer,
   storeDetails: storeDetailsReducer,
 
