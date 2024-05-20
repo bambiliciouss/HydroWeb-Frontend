@@ -126,7 +126,7 @@ const OrderSummary = () => {
 
     if (now < openingTime || now > closingTime) {
       swal(
-        "We are not accepting orders outside of 8:00 AM to 5:30 PM.",
+        "We are not accepting online orders outside of 8:00 AM to 5:30 PM.",
         "",
         "warning"
       );
