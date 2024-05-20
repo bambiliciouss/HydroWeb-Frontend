@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState,useCallback  } from "react";
+import React, { Fragment, useEffect, useState, useCallback } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -56,6 +56,7 @@ import { getStoreDetails } from "actions/storebranchActions";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
 import { GoogleMap, useJsApiLoader, LoadScript } from "@react-google-maps/api";
+import { mapOptions } from "./MapConfiguration";
 
 const containerStyle = {
   width: "400px",
@@ -72,15 +73,21 @@ const RiderMap = (args) => {
   let navigate = useNavigate();
   const { id } = useParams();
 
-  const [map, setMap] = useState(null);
+  const { isLoaded } = useJsApiLoader({
+    id: mapOptions.googleMapsApiKey,
+    googleMapsApiKey: "AIzaSyCKllvUiu_RD2Yphmk7gSPOTuXaLjQjRuA",
+  });
 
-  const onLoad = useCallback(function callback(map) {
-    setMap(map)
-  }, [])
+  const containerStyle = {
+    width: "400px",
+    height: "400px",
+  };
 
-  const onUnmount = useCallback(function callback(map) {
-    setMap(null)
-  }, [])
+  const center = {
+    lat: 14.494066571370974,
+    lng: 121.0509383094235,
+  };
+
   return (
     <>
       <MetaData title={"Rider Location"} />
@@ -99,21 +106,19 @@ const RiderMap = (args) => {
             <CardHeader className="bg-white border-0">
               <Row className="align-items-center">
                 <Col xs="8">
-                <h3 className="mb-0">Rider Location</h3>
+                  <h3 className="mb-0">Rider Location</h3>
                 </Col>
               </Row>
             </CardHeader>
             <CardBody style={{ overflowX: "auto" }}>
-            
-              <LoadScript googleMapsApiKey="AIzaSyCKllvUiu_RD2Yphmk7gSPOTuXaLjQjRuA">
+              {isLoaded && (
                 <GoogleMap
                   mapContainerStyle={containerStyle}
                   center={center}
-                  zoom={10}
-                  onLoad={onLoad}
-                  onUnmount={onUnmount}
-                />
-              </LoadScript>
+                  zoom={10}>
+                 
+                </GoogleMap>
+              )}
             </CardBody>
           </Card>
         </Container>
