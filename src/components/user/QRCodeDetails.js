@@ -64,8 +64,11 @@ const QRCodeDetails = () => {
             <Card className="bg-secondary shadow">
               <CardHeader className="bg-white border-0">
                 <Row className="align-items-center">
-                  <Col xs="8">
+                  <Col xs="6">
                     <h3 className="mb-0">Customer Details</h3>
+                  </Col>
+                  <Col xs="6">
+                    <h3 className="mb-0">Order Status: {orders.latestOrderStatusLevel}</h3>
                   </Col>
                 </Row>
               </CardHeader>

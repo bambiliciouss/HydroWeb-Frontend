@@ -273,7 +273,7 @@ export const recentOrderStatus = (id) => async (dispatch) => {
       { withCredentials: true }
     );
 
-    console.log("userdetails", data.latestOrderStatusLevel);
+    console.log("Recent Order Status", data.latestOrderStatusLevel);
     dispatch({
       type: ALL_ORDERS_SUCCESS,
       payload: data,
