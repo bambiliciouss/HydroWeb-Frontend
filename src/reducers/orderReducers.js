@@ -260,3 +260,34 @@ export const receiptReducer = (state = {}, action) => {
       return state;
   }
 };
+
+
+export const recentorderReducer = (state = { latestOrderStatusLevel: [] }, action) => {
+  switch (action.type) {
+    case ALL_ORDERS_REQUEST:
+      return {
+        loading: true,
+      };
+
+    case ALL_ORDERS_SUCCESS:
+      return {
+        loading: false,
+        latestOrderStatusLevel: action.payload,
+      };
+
+    case ALL_ORDERS_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+
+    default:
+      return state;
+  }
+};

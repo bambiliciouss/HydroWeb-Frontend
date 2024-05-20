@@ -15,6 +15,7 @@ import {
   Container,
   Row,
   Col,
+  Badge,
 } from "reactstrap";
 import { getUserQRDetails } from "actions/userActions";
 import { AdminallAddress } from "actions/addressAction";
@@ -30,7 +31,7 @@ const QRCodeDetails = () => {
 
   const { user } = useSelector((state) => state.userDetails);
 
-  const { orders } = useSelector((state) => state.allOrders);
+  const { latestOrderStatusLevel } = useSelector((state) => state.recentorder);
   React.useEffect(() => {
     dispatch(getUserQRDetails(id));
     dispatch(AdminallAddress(id));
@@ -38,12 +39,39 @@ const QRCodeDetails = () => {
     //console.log("QR STATUS", orders);
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
+    console.log(latestOrderStatusLevel.latestOrderStatusLevel);
   }, [location]);
 
   const defaultAddress =
     user?.addresses?.find((address) => address.isDefault) || {};
 
   console.log("info", defaultAddress);
+
+  let statusBadgeColor = "";
+  switch (latestOrderStatusLevel) {
+    case "Order Placed":
+      statusBadgeColor = "secondary";
+      break;
+    case "Order Accepted":
+      statusBadgeColor = "primary";
+      break;
+    case "Container has been picked up":
+    case "Container is at the Store":
+      statusBadgeColor = "info";
+      break;
+    case "Out for Delivery":
+      statusBadgeColor = "warning";
+      break;
+    case "Delivered":
+      statusBadgeColor = "success";
+      break;
+    case "Rejected":
+      statusBadgeColor = "danger";
+      break;
+    default:
+      statusBadgeColor = "light";
+      break;
+  }
   return (
     <>
       <MetaData title={"QR Code Details"} />
@@ -64,11 +92,16 @@ const QRCodeDetails = () => {
             <Card className="bg-secondary shadow">
               <CardHeader className="bg-white border-0">
                 <Row className="align-items-center">
-                  <Col xs="6">
+                  <Col xs="12">
                     <h3 className="mb-0">Customer Details</h3>
                   </Col>
-                  <Col xs="6">
-                    <h3 className="mb-0">Order Status: {orders.latestOrderStatusLevel}</h3>
+                  <Col xs="12">
+                    <h3 className="mb-0">
+                      Order Status:{" "}
+                      <Badge color={statusBadgeColor}>
+                        {latestOrderStatusLevel || "N/A"}
+                      </Badge>
+                    </h3>
                   </Col>
                 </Row>
               </CardHeader>

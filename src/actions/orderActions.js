@@ -234,7 +234,6 @@ export const allOrdersRider = () => async (dispatch) => {
   }
 };
 
-
 export const orderReceipt = (id) => async (dispatch) => {
   try {
     dispatch({ type: RECEIPT_REQUEST });
@@ -276,7 +275,7 @@ export const recentOrderStatus = (id) => async (dispatch) => {
     console.log("Recent Order Status", data.latestOrderStatusLevel);
     dispatch({
       type: ALL_ORDERS_SUCCESS,
-      payload: data,
+      payload: data.latestOrderStatusLevel,
     });
   } catch (error) {
     dispatch({
