@@ -57,7 +57,7 @@ function Footer() {
             <Link to='/'>Twitter</Link>
           </div>
       </div> */}
-
+{/* 
       <section class='social-media'>
         <div class='social-media-wrap'>
           <div class='footer-logo'>
@@ -108,7 +108,7 @@ function Footer() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
         
       <div className="copy">
         <div className="container">
