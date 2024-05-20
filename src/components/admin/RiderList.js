@@ -344,10 +344,9 @@ const RiderList = (args) => {
               onClick={() => deleteUserHandler(user._id)}>
               <i className="fa fa-trash"></i>
             </button>
-            <button
-              className="btn btn-info py-1 px-2 ml-2"
-              onClick={() => openUserIdModal(user._id)}>
-              Assign Store
+            <button className="btn btn-info py-1 px-2 ml-2"
+             onClick={() => navigate(`/rider/location/${user._id}`)}>
+              View Rider Location
             </button>
           </Fragment>
         ),

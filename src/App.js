@@ -89,7 +89,7 @@ import AdminProcessing from "components/admin/AdminProcessing";
 
 import EmployeeOrderList from "components/employee/Orderlist";
 import RiderOrderList from "components/rider/RiderOrderlist";
-
+import RiderMap from "components/admin/RiderMap";
 
 
 import store from "./store";
@@ -215,6 +215,7 @@ function App() {
 
          <Route path="/employee/orderlist" element={<ProtectedRoute><EmployeeOrderList /></ProtectedRoute>} exact="true" /> 
          <Route path="/rider/orderlist" element={<ProtectedRoute><RiderOrderList /></ProtectedRoute>} exact="true" /> 
+         <Route path="/rider/location/:id" element={<ProtectedRoute><RiderMap /></ProtectedRoute>} exact="true" /> 
 
       </Routes>
     </>
