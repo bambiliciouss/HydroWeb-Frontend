@@ -117,7 +117,9 @@ const RiderMap = (args) => {
             <CardHeader className="bg-white border-0">
               <Row className="align-items-center">
                 <Col xs="8">
-                  <h3 className="mb-0">Rider Location</h3>
+                  <h3 className="mb-0">
+                  Rider Location ({riderlatlong?.user?.fname || "Loading..."} {riderlatlong?.user?.lname || ""})
+                  </h3>
                 </Col>
               </Row>
             </CardHeader>
