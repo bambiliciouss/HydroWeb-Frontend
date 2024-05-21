@@ -120,18 +120,18 @@ const OrderSummary = () => {
     //   status: "succeeded",
     // };
 
-    const now = DateTime.now().setZone("Asia/Manila");
-    const openingTime = now.set({ hour: 8, minute: 0 });
-    const closingTime = now.set({ hour: 17, minute: 30 });
+    // const now = DateTime.now().setZone("Asia/Manila");
+    // const openingTime = now.set({ hour: 8, minute: 0 });
+    // const closingTime = now.set({ hour: 17, minute: 30 });
 
-    if (now < openingTime || now > closingTime) {
-      swal(
-        "We are not accepting online orders outside of 8:00 AM to 5:30 PM.",
-        "",
-        "warning"
-      );
-      return;
-    }
+    // if (now < openingTime || now > closingTime) {
+    //   swal(
+    //     "We are not accepting online orders outside of 8:00 AM to 5:30 PM.",
+    //     "",
+    //     "warning"
+    //   );
+    //   return;
+    // }
 
     try {
       await dispatch(createOrder(order));
