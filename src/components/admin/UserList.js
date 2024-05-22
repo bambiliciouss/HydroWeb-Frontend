@@ -123,7 +123,7 @@ const UserList = () => {
       dispatch({ type: DELETE_USER_RESET });
     }
 
-    setQrDetails(`https://crownprincess.online/details/${selectedUser}`);
+    setQrDetails(`https://crownprincess.online/details/${selectedUser}00`);
   }, [dispatch, isDeleted, navigate, selectedUser, activeStoreBranch]);
   // console.log("result", qrdetails);
 

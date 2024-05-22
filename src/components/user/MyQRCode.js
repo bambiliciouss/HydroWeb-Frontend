@@ -47,7 +47,7 @@ const MyQRCode = () => {
     document.scrollingElement.scrollTop = 0;
 
     if (user) {
-      setQrDetails(`https://crownprincess.online/details/${userId}`);
+      setQrDetails(`https://crownprincess.online/details/${userId}00`);
     }
   }, [location, user, userId]);
   console.log("result", qrdetails);
