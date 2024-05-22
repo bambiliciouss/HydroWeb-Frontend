@@ -110,13 +110,13 @@ const Dashboard = (props) => {
     "March",
     "April",
     "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    // "June",
+    // "July",
+    // "August",
+    // "September",
+    // "October",
+    // "November",
+    // "December",
   ]; // Array of months
   const currentYear = new Date().getFullYear();
   let years = [];

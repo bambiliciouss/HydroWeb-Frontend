@@ -200,11 +200,11 @@ const RiderList = (args) => {
     toggle();
     window.location.reload();
 
-    swal(
-      "An email sent to your employee's email account, please verify",
-      "",
-      "success"
-    );
+    // swal(
+    //   "An email sent to your employee's email account, please verify",
+    //   "",
+    //   "success"
+    // );
   };
 
   const onChange = (e) => {
