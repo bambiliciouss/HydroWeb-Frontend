@@ -110,7 +110,7 @@ const Dashboard = (props) => {
     "March",
     "April",
     "May",
-    // "June",
+    "June",
     // "July",
     // "August",
     // "September",
@@ -186,6 +186,7 @@ const Dashboard = (props) => {
         : "year"
     );
   };
+
 
   const [filter4, setFilter4] = useState("today");
   const [activeNav4, setActiveNav4] = useState(1);
@@ -426,6 +427,7 @@ const Dashboard = (props) => {
       ).reverse();
     }
   };
+  
   const totalSalesBranchLabel = (filter, data) => {
     if (filter === "today") {
       return data.totalSales.map((sale) =>
@@ -453,6 +455,7 @@ const Dashboard = (props) => {
       ).reverse();
     }
   };
+
   const getAllSalesLabels = (filter, data) => {
     if (filter === "today") {
       return data.totalSales.map((sale) =>
@@ -523,7 +526,7 @@ const Dashboard = (props) => {
             if (sale){
               sale.branches.forEach((branch)=>{
                 if (branch.branch === status){
-                  acc[status] = (acc[status] || 0) + branch.totalSales
+                  acc[status] = (acc[status] || 0)
                 }
               })
             }
