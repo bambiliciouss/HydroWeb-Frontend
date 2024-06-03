@@ -455,7 +455,7 @@ const Dashboard = (props) => {
       ).reverse();
     }
   };
-
+  
   const getAllSalesLabels = (filter, data) => {
     if (filter === "today") {
       return data.totalSales.map((sale) =>
@@ -526,7 +526,7 @@ const Dashboard = (props) => {
             if (sale){
               sale.branches.forEach((branch)=>{
                 if (branch.branch === status){
-                  acc[status] = (acc[status] || 0)
+                  acc[status] = branch.totalSales
                 }
               })
             }
