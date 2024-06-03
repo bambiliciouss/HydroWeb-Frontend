@@ -1,41 +1,33 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Button, Heading, Icon, } from "@chakra-ui/react";
-import { CheckCircleIcon } from "@chakra-ui/icons";
+import { Button, Container, Row, Col } from "reactstrap";
 import { verifyOrders, clearErrors } from "../../actions/orderActions";
-//import { clearCart } from "../../actions/cartActions";
+// import { clearCart } from "../../actions/cartActions";
 
 const VerifyOrderDetails = () => {
     const dispatch = useDispatch();
     let { id, token } = useParams();
 
     useEffect(() => {
-        dispatch(verifyOrders(token, id))
-        //dispatch(clearCart())
+        dispatch(verifyOrders(token, id));
+        // dispatch(clearCart());
     }, [dispatch, id, token]);
 
     return (
-        <div className="bg-zinc-100 min-h-screen flex justify-center items-center">
-            <div className="bg-white p-4 justify-center flex flex-col items-center rounded-xl space-y-5 mb-20">
-                <Icon as={CheckCircleIcon} boxSize={140} color="red.500" mx="auto" />
-
-                <Heading as="h2" size="lg" mt={4}>
-                    Payment  Successful!
-                </Heading>
-
-                <p className="text-zinc-500">
-                    Payment successfully!
-                </p>
-
+        <div className="bg-zinc-100 min-h-screen d-flex justify-content-center align-items-center">
+            <Container className="bg-white p-4 d-flex flex-column align-items-center rounded-xl mb-20" style={{ maxWidth: "500px" }}>
+                <h2 className="mt-4">Payment Successful!</h2>
+                <p className="text-zinc-500">Payment successful!</p>
                 <Link to="/orders/me">
-                    <Button colorScheme="red" size="lg" isFullWidth>
+                    <Button color="danger" size="lg" block>
                         Check Orders
                     </Button>
                 </Link>
-            </div>
+            </Container>
         </div>
     );
 };
 
 export default VerifyOrderDetails;
+
