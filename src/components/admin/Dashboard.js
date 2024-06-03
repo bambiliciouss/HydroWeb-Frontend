@@ -533,8 +533,8 @@ const Dashboard = (props) => {
             }
            
             
-            //return acc[status] || 0;
-            return sale ? sale.count : 0;
+            return acc[status] || 0;
+            //return sale ? sale.count : 0;
           }),
           backgroundColor: getRandomColor(),
         };
