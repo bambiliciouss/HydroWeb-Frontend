@@ -19,6 +19,10 @@ import {
   RECEIPT_FAIL,
   RECEIPT_REQUEST,
   RECEIPT_SUCCESS,
+  VERIFY_ORDER_REQUEST,
+  VERIFY_ORDER_SUCCESS,
+  VERIFY_ORDER_FAIL,
+
 } from "../constants/orderConstants";
 import socket from "../socket";
 
@@ -55,6 +59,32 @@ export const createOrder = (order) => async (dispatch, getState) => {
     console.log(error);
   }
 };
+
+export const verifyOrders = (token, id) => async (dispatch) => {
+  try {
+      dispatch({ type: VERIFY_ORDER_REQUEST });
+
+      const config = {
+          headers: {
+              "Content-Type": "application/json",
+          },
+          withCredentials: true
+      };
+
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/paymongo-gcash/${token}/${id}`, config);
+
+      dispatch({
+          type: VERIFY_ORDER_SUCCESS,
+          payload: data.success,
+      });
+  } catch (error) {
+      dispatch({
+          type: VERIFY_ORDER_FAIL,
+          payload: error.response.data.message,
+      });
+  }
+};
+
 
 export const clearErrors = () => async (dispatch) => {
   dispatch({

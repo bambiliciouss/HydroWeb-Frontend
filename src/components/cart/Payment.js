@@ -101,7 +101,7 @@ const Payment = () => {
                 </div>
               </FormGroup> */}
 
-              {/* <Row>
+              <Row>
                 <Col sm="12">
                   <Card body>
                     <FormGroup check>
@@ -120,7 +120,7 @@ const Payment = () => {
                   </Card>
                 </Col>
               </Row>
-              <div style={{ marginBottom: "20px" }}></div> */}
+              <div style={{ marginBottom: "20px" }}></div>
 
               <Row>
                 <Col sm="12">

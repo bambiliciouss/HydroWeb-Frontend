@@ -102,6 +102,8 @@ import PendingAdminDetails from "components/superadmin/PendingAdminDetails";
 import AdminList from "components/superadmin/adminlist";
 import Notification from "components/notification/Notification";
 
+import VerifyOrderDetails from "components/order/VerifyOrderDetails";
+
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
