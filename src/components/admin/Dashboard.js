@@ -187,7 +187,6 @@ const Dashboard = (props) => {
     );
   };
 
-
   const [filter4, setFilter4] = useState("today");
   const [activeNav4, setActiveNav4] = useState(1);
   const toggleNavs4 = (e, index) => {
@@ -355,7 +354,7 @@ const Dashboard = (props) => {
       );
     } else if (filter === "weekly") {
       // return transactions.transactions.map(transaction => transaction._id);
-      const [month, day, year] = transactions.startDate.split("/");//4/21/2024
+      const [month, day, year] = transactions.startDate.split("/"); //4/21/2024
       const start = new Date(year, month - 1, Number(day));
       return Array.from({ length: 7 }, (_, i) => {
         const date = new Date(start.getTime());
@@ -428,7 +427,7 @@ const Dashboard = (props) => {
       ).reverse();
     }
   };
-  
+
   const totalSalesBranchLabel = (filter, data) => {
     if (filter === "today") {
       return data.totalSales.map((sale) =>
@@ -456,7 +455,7 @@ const Dashboard = (props) => {
       ).reverse();
     }
   };
-  
+
   const getAllSalesLabels = (filter, data) => {
     if (filter === "today") {
       return data.totalSales.map((sale) =>
@@ -495,7 +494,7 @@ const Dashboard = (props) => {
           )
         ),
       ];
-     
+
       //Generate labels
       const labels = getAllSalesLabels(filter4, sales);
       const datasets = branches.map((status) => {
@@ -524,17 +523,20 @@ const Dashboard = (props) => {
               );
             }
             // const order = sale && sale.branches.find((order) => order.branch === status);
-            if (sale){
-              sale.branches.forEach((branch)=>{
-                if (branch.branch === status){
-                  acc[status] = branch.totalSales
+            if (sale) {
+              sale.branches.forEach((branch) => {
+                if (branch.branch === status) {
+                  acc[status] = branch.totalSales;
                 }
-              })
+              });
             }
-           
-            
-            return acc[status] || 0;
-            //return sale ? sale.count : 0;
+
+            //return acc[status] || 0;
+            const totalSales = sale
+              ? sale.branches.find((branch) => branch.branch === status)
+                  ?.totalSales
+              : 0;
+            return totalSales || 0;
           }),
           backgroundColor: getRandomColor(),
         };
@@ -1033,16 +1035,14 @@ const Dashboard = (props) => {
                       </h5>
                       <CardTitle
                         tag="h2"
-                        className="text-uppercase text-black mb-0  font-weight-bolder"
-                      >
+                        className="text-uppercase text-black mb-0  font-weight-bolder">
                         Total Sales
                       </CardTitle>
                     </div>
                     <Col className="col-auto">
                       <CardTitle
                         tag="h1"
-                        className="text-uppercase text-primary mb-0 font-weight-bolder"
-                      >
+                        className="text-uppercase text-primary mb-0 font-weight-bolder">
                         {totalSales && totalSales > 0 ? (
                           `₱${totalSales}`
                         ) : localStorage.getItem("totalSales") &&
@@ -1067,16 +1067,14 @@ const Dashboard = (props) => {
                       </h5>
                       <CardTitle
                         tag="h2"
-                        className="text-uppercase text-black mb-0  font-weight-bolder"
-                      >
+                        className="text-uppercase text-black mb-0  font-weight-bolder">
                         Total Sales Ordering
                       </CardTitle>
                     </div>
                     <Col className="col-auto">
                       <CardTitle
                         tag="h1"
-                        className="text-uppercase text-primary mb-0 font-weight-bolder"
-                      >
+                        className="text-uppercase text-primary mb-0 font-weight-bolder">
                         {orders &&
                         branch &&
                         orders.find((sale) => sale._id === branch) ? (
@@ -1103,16 +1101,14 @@ const Dashboard = (props) => {
                       </h5>
                       <CardTitle
                         tag="h2"
-                        className="text-uppercase text-black mb-0  font-weight-bolder"
-                      >
+                        className="text-uppercase text-black mb-0  font-weight-bolder">
                         Total Sales Walk In
                       </CardTitle>
                     </div>
                     <Col className="col-auto">
                       <CardTitle
                         tag="h1"
-                        className="text-uppercase text-primary mb-0 font-weight-bolder"
-                      >
+                        className="text-uppercase text-primary mb-0 font-weight-bolder">
                         {walkinSales &&
                         branch &&
                         walkinSales.find((sale) => sale._id === branch) ? (
@@ -1178,8 +1174,7 @@ const Dashboard = (props) => {
                               active: activeNav === 1,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs(e, 1)}
-                          >
+                            onClick={(e) => toggleNavs(e, 1)}>
                             <span className="d-none d-md-block">Today</span>
                             <span className="d-md-none">T</span>
                           </NavLink>
@@ -1190,8 +1185,7 @@ const Dashboard = (props) => {
                               active: activeNav === 2,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs(e, 2)}
-                          >
+                            onClick={(e) => toggleNavs(e, 2)}>
                             <span className="d-none d-md-block">Week</span>
                             <span className="d-md-none">W</span>
                           </NavLink>
@@ -1203,8 +1197,7 @@ const Dashboard = (props) => {
                             })}
                             data-toggle="tab"
                             href="#pablo"
-                            onClick={(e) => toggleNavs(e, 3)}
-                          >
+                            onClick={(e) => toggleNavs(e, 3)}>
                             <span className="d-none d-md-block">Month</span>
                             <span className="d-md-none">M</span>
                           </NavLink>
@@ -1215,8 +1208,7 @@ const Dashboard = (props) => {
                               active: activeNav === 4,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs(e, 4)}
-                          >
+                            onClick={(e) => toggleNavs(e, 4)}>
                             <span className="d-none d-md-block">Year</span>
                             <span className="d-md-none">Y</span>
                           </NavLink>
@@ -1273,8 +1265,7 @@ const Dashboard = (props) => {
                               active: activeNav3 === 1,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs3(e, 1)}
-                          >
+                            onClick={(e) => toggleNavs3(e, 1)}>
                             <span className="d-none d-md-block">Today</span>
                             <span className="d-md-none">T</span>
                           </NavLink>
@@ -1285,8 +1276,7 @@ const Dashboard = (props) => {
                               active: activeNav3 === 2,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs3(e, 2)}
-                          >
+                            onClick={(e) => toggleNavs3(e, 2)}>
                             <span className="d-none d-md-block">Week</span>
                             <span className="d-md-none">W</span>
                           </NavLink>
@@ -1298,8 +1288,7 @@ const Dashboard = (props) => {
                             })}
                             data-toggle="tab"
                             href="#pablo"
-                            onClick={(e) => toggleNavs3(e, 3)}
-                          >
+                            onClick={(e) => toggleNavs3(e, 3)}>
                             <span className="d-none d-md-block">Month</span>
                             <span className="d-md-none">M</span>
                           </NavLink>
@@ -1310,8 +1299,7 @@ const Dashboard = (props) => {
                               active: activeNav3 === 4,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs3(e, 4)}
-                          >
+                            onClick={(e) => toggleNavs3(e, 4)}>
                             <span className="d-none d-md-block">Year</span>
                             <span className="d-md-none">Y</span>
                           </NavLink>
@@ -1365,8 +1353,7 @@ const Dashboard = (props) => {
                               active: activeNav2 === 1,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs2(e, 1)}
-                          >
+                            onClick={(e) => toggleNavs2(e, 1)}>
                             <span className="d-none d-md-block">Today</span>
                             <span className="d-md-none">T</span>
                           </NavLink>
@@ -1377,8 +1364,7 @@ const Dashboard = (props) => {
                               active: activeNav2 === 2,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs2(e, 2)}
-                          >
+                            onClick={(e) => toggleNavs2(e, 2)}>
                             <span className="d-none d-md-block">Week</span>
                             <span className="d-md-none">W</span>
                           </NavLink>
@@ -1390,8 +1376,7 @@ const Dashboard = (props) => {
                             })}
                             data-toggle="tab"
                             href="#pablo"
-                            onClick={(e) => toggleNavs2(e, 3)}
-                          >
+                            onClick={(e) => toggleNavs2(e, 3)}>
                             <span className="d-none d-md-block">Month</span>
                             <span className="d-md-none">M</span>
                           </NavLink>
@@ -1402,8 +1387,7 @@ const Dashboard = (props) => {
                               active: activeNav2 === 4,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs2(e, 4)}
-                          >
+                            onClick={(e) => toggleNavs2(e, 4)}>
                             <span className="d-none d-md-block">Year</span>
                             <span className="d-md-none">Y</span>
                           </NavLink>
@@ -1614,8 +1598,7 @@ const Dashboard = (props) => {
                                   width: "10px",
                                   height: "10px",
                                   backgroundColor: `${colors[index]}`,
-                                }}
-                              ></div>
+                                }}></div>
                               <p className="d-flex w-100 justify-content-between text-sm font-medium text-black">
                                 <span> {item._id}</span>
                                 <span className="ml-3">
@@ -1660,8 +1643,7 @@ const Dashboard = (props) => {
                             <Dropdown.Item
                               key={index}
                               eventKey={index + 1}
-                              onClick={() => handleMonthFilter(month, index)}
-                            >
+                              onClick={() => handleMonthFilter(month, index)}>
                               {month}
                             </Dropdown.Item>
                           ))}
@@ -1677,8 +1659,7 @@ const Dashboard = (props) => {
                             <Dropdown.Item
                               key={index}
                               eventKey={index + 1}
-                              onClick={() => handleYearFilter(year, index)}
-                            >
+                              onClick={() => handleYearFilter(year, index)}>
                               {year}
                             </Dropdown.Item>
                           ))}
@@ -1726,8 +1707,7 @@ const Dashboard = (props) => {
                         <div style={{ maxHeight: "300px", overflowY: "auto" }}>
                           <Table
                             className="align-items-center table-flush"
-                            responsive
-                          >
+                            responsive>
                             <thead className="thead-light">
                               <tr>
                                 <th scope="col" className="text-center">
@@ -1776,8 +1756,7 @@ const Dashboard = (props) => {
                                                 fontSize: "20px",
                                                 display: "inline-block",
                                                 verticalAlign: "middle",
-                                              }}
-                                            >
+                                              }}>
                                               {index + 1}
                                             </span>
                                           )}
@@ -1832,8 +1811,7 @@ const Dashboard = (props) => {
                         <div style={{ maxHeight: "300px", overflowY: "auto" }}>
                           <Table
                             className="align-items-center table-flush"
-                            responsive
-                          >
+                            responsive>
                             <thead className="thead-light">
                               <tr>
                                 <th scope="col" className="text-center">
@@ -1882,8 +1860,7 @@ const Dashboard = (props) => {
                                                 fontSize: "20px",
                                                 display: "inline-block",
                                                 verticalAlign: "middle",
-                                              }}
-                                            >
+                                              }}>
                                               {index + 1}
                                             </span>
                                           )}
@@ -1922,10 +1899,12 @@ const Dashboard = (props) => {
                         Average Rating{" "}
                         {reviews && reviews.length > 0 ? (
                           <>
-                            {(reviews.reduce(
-                              (acc, item) => acc + item._id.rating,
-                              0
-                            ) / reviews.length).toFixed(1)}{" "}
+                            {(
+                              reviews.reduce(
+                                (acc, item) => acc + item._id.rating,
+                                0
+                              ) / reviews.length
+                            ).toFixed(1)}{" "}
                             <FontAwesomeIcon
                               icon={faStar}
                               size="sm"
@@ -1950,8 +1929,7 @@ const Dashboard = (props) => {
                               eventKey={index + 1}
                               onClick={() =>
                                 handleReviewMonthFilter(month, index)
-                              }
-                            >
+                              }>
                               {month}
                             </Dropdown.Item>
                           ))}
@@ -1971,8 +1949,7 @@ const Dashboard = (props) => {
                               eventKey={index + 1}
                               onClick={() =>
                                 handleReviewYearFilter(year, index)
-                              }
-                            >
+                              }>
                               {year}
                             </Dropdown.Item>
                           ))}
@@ -1985,8 +1962,7 @@ const Dashboard = (props) => {
                   <div style={{ maxHeight: "300px", overflowY: "auto" }}>
                     <Table
                       className="align-items-center table-flush"
-                      responsive
-                    >
+                      responsive>
                       <thead className="thead-light">
                         <tr>
                           <th scope="col" className="text-center">
@@ -2055,8 +2031,7 @@ const Dashboard = (props) => {
                               active: activeNav4 === 1,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs4(e, 1)}
-                          >
+                            onClick={(e) => toggleNavs4(e, 1)}>
                             <span className="d-none d-md-block">Today</span>
                             <span className="d-md-none">T</span>
                           </NavLink>
@@ -2067,8 +2042,7 @@ const Dashboard = (props) => {
                               active: activeNav4 === 2,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs4(e, 2)}
-                          >
+                            onClick={(e) => toggleNavs4(e, 2)}>
                             <span className="d-none d-md-block">Week</span>
                             <span className="d-md-none">W</span>
                           </NavLink>
@@ -2080,8 +2054,7 @@ const Dashboard = (props) => {
                             })}
                             data-toggle="tab"
                             href="#pablo"
-                            onClick={(e) => toggleNavs4(e, 3)}
-                          >
+                            onClick={(e) => toggleNavs4(e, 3)}>
                             <span className="d-none d-md-block">Month</span>
                             <span className="d-md-none">M</span>
                           </NavLink>
@@ -2092,8 +2065,7 @@ const Dashboard = (props) => {
                               active: activeNav4 === 4,
                             })}
                             href="#pablo"
-                            onClick={(e) => toggleNavs4(e, 4)}
-                          >
+                            onClick={(e) => toggleNavs4(e, 4)}>
                             <span className="d-none d-md-block">Year</span>
                             <span className="d-md-none">Y</span>
                           </NavLink>
