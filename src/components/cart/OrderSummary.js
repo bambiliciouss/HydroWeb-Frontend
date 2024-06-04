@@ -24,6 +24,7 @@ import socket from "../../socket";
 import swal from "sweetalert";
 import { DateTime } from "luxon";
 import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
@@ -45,9 +46,10 @@ const OrderSummary = () => {
       dispatch(clearErrors());
     }
     if (success && isSuccess === true) {
-      toast.success("Your order has been placed successfully!", {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
+      // toast.success("Your order has been placed successfully!", {
+      //   position: toast.POSITION.BOTTOM_CENTER,
+      // });
+      swal("Your order has been placed successfully!", "", "success");
       dispatch(clearCart());
       sessionStorage.clear();
       localStorage.clear();
