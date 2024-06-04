@@ -158,8 +158,8 @@ const OrderSummary = () => {
       sessionStorage.clear();
       localStorage.clear();
 
-      navigate("/orders/me");
-      window.location.reload();
+      //navigate("/orders/me");
+      //window.location.reload();
     } catch (error) {
       console.log(error);
     }
