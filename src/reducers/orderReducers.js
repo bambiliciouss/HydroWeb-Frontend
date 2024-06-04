@@ -33,6 +33,7 @@ export const newOrderReducer = (state = {}, action) => {
       return {
         loading: false,
         order: action.payload,
+        checkoutUrl: action.payload.checkoutUrl
       };
 
     case CREATE_ORDER_FAIL:

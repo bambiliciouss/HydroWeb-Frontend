@@ -23,24 +23,39 @@ import CheckoutSteps from "./CheckoutSteps";
 import socket from "../../socket";
 import swal from "sweetalert";
 import { DateTime } from "luxon";
+import { toast } from "react-toastify";
+
 const OrderSummary = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const { cartItems } = useSelector((state) => state.cart);
   const { cartProductItems } = useSelector((state) => state.cartProduct);
-  const { error } = useSelector((state) => state.newOrder);
+  const { error, success, checkoutUrl } = useSelector((state) => state.newOrder);
   const [notes, setNotes] = useState();
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     //console.log(user)
     if (error) {
       console.log(error);
+      setIsSuccess(false);
       dispatch(clearErrors());
+    }
+    if (success && isSuccess === true) {
+      toast.success("Your order has been placed successfully!", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
+      dispatch(clearCart());
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      } else {
+        navigate("/");
+      }
     }
 
     console.log("THIS IS THE USER", user);
-  }, [dispatch, alert, error]);
+  }, [dispatch, alert, error,success, navigate, isSuccess]);
 
   const order = {
     orderItems: cartItems,
