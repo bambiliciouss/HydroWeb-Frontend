@@ -31,9 +31,14 @@ export const newOrderReducer = (state = {}, action) => {
 
     case CREATE_ORDER_SUCCESS:
       return {
+        // loading: false,
+        // order: action.payload,
+        // checkoutUrl: action.payload.checkoutUrl
+        ...state,
         loading: false,
-        order: action.payload,
-        checkoutUrl: action.payload.checkoutUrl
+        order: action.payload.order,
+        success: true,
+        checkoutUrl: action.payload.checkoutUrl,
       };
 
     case CREATE_ORDER_FAIL:
@@ -262,8 +267,10 @@ export const receiptReducer = (state = {}, action) => {
   }
 };
 
-
-export const recentorderReducer = (state = { latestOrderStatusLevel: [] }, action) => {
+export const recentorderReducer = (
+  state = { latestOrderStatusLevel: [] },
+  action
+) => {
   switch (action.type) {
     case ALL_ORDERS_REQUEST:
       return {
