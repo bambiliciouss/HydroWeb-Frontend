@@ -150,6 +150,7 @@ const OrderSummary = () => {
 
     try {
       await dispatch(createOrder(order));
+      setIsSuccess(true);
       // socket.emit("newOrder", {message: `New Order Placed: `, branch: order.selectedStore.store, title: `${order.selectedStore.branchNo}`, order: order});
       console.log("order", order);
 
