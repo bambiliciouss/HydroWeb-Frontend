@@ -103,7 +103,7 @@ import AdminList from "components/superadmin/adminlist";
 import Notification from "components/notification/Notification";
 
 import VerifyOrderDetails from "components/order/VerifyOrderDetails";
-
+import OrderSuccess from "components/cart/OrderSuccess";
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -116,7 +116,8 @@ function App() {
         <Route path="/Cards" element={<Cards />}/>
         <Route path="/contact-us" element={<ContactUs/>} />
 
-        <Route path='/paymongo-gcash/:token/:id' element={<VerifyOrderDetails />} exact='true' />      
+        <Route path='/paymongo-gcash/:token/:id' element={<VerifyOrderDetails />} exact='true' />     
+        <Route path='/paymongo-gcash/success' element={<OrderSuccess />} exact='true' />     
         <Route path="/login" element={<Login />} exact="true" />
         <Route path="/register" element={<Register />} exact="true" />
         <Route path="/admin/processing" element={<AdminProcessing />} exact="true" />

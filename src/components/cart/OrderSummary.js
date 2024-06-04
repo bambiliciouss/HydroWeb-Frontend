@@ -46,18 +46,13 @@ const OrderSummary = () => {
       dispatch(clearErrors());
     }
     if (success && isSuccess === true) {
-      // toast.success("Your order has been placed successfully!", {
-      //   position: toast.POSITION.BOTTOM_CENTER,
-      // });
       swal("Your order has been placed successfully!", "", "success");
       dispatch(clearCart());
-      sessionStorage.clear();
-      localStorage.clear();
 
       if (checkoutUrl) {
         window.location.href = checkoutUrl;
       } else {
-        navigate("/");
+        navigate("/paymongo-gcash/success");
       }
     }
 
