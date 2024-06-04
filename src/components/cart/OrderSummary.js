@@ -45,7 +45,7 @@ const OrderSummary = () => {
       setIsSuccess(false);
       dispatch(clearErrors());
     }
-    if (success && isSuccess === true) {
+    if (success) {
       swal("Your order has been placed successfully!", "", "success");
       dispatch(clearCart());
 
@@ -57,7 +57,7 @@ const OrderSummary = () => {
     }
 
     console.log("THIS IS THE USER", user);
-  }, [dispatch, alert, error, success, navigate, isSuccess]);
+  }, [dispatch, alert, error, success, navigate]);
 
   const order = {
     orderItems: cartItems,
