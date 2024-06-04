@@ -31,7 +31,9 @@ const OrderSummary = () => {
   const { user } = useSelector((state) => state.auth);
   const { cartItems } = useSelector((state) => state.cart);
   const { cartProductItems } = useSelector((state) => state.cartProduct);
-  const { error, success, checkoutUrl } = useSelector((state) => state.newOrder);
+  const { error, success, checkoutUrl } = useSelector(
+    (state) => state.newOrder
+  );
   const [notes, setNotes] = useState();
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -55,7 +57,7 @@ const OrderSummary = () => {
     }
 
     console.log("THIS IS THE USER", user);
-  }, [dispatch, alert, error,success, navigate, isSuccess]);
+  }, [dispatch, alert, error, success, navigate, isSuccess]);
 
   const order = {
     orderItems: cartItems,
@@ -149,12 +151,12 @@ const OrderSummary = () => {
     // }
 
     try {
-      await dispatch(createOrder(order));
+      dispatch(createOrder(order));
       setIsSuccess(true);
       // socket.emit("newOrder", {message: `New Order Placed: `, branch: order.selectedStore.store, title: `${order.selectedStore.branchNo}`, order: order});
       console.log("order", order);
 
-      await dispatch(clearCart());
+      // dispatch(clearCart());
       sessionStorage.clear();
       localStorage.clear();
 
