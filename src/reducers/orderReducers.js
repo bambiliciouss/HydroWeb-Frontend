@@ -36,7 +36,7 @@ export const newOrderReducer = (state = {}, action) => {
         // checkoutUrl: action.payload.checkoutUrl
         ...state,
         loading: false,
-        order: action.payload.order,
+        order: action.payload,
         success: true,
         checkoutUrl: action.payload.checkoutUrl,
       };
