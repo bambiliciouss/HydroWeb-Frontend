@@ -25,7 +25,6 @@ import swal from "sweetalert";
 import { DateTime } from "luxon";
 import { toast } from "react-toastify";
 
-
 const OrderSummary = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -48,11 +47,14 @@ const OrderSummary = () => {
     if (success) {
       swal("Your order has been placed successfully!", "", "success");
       dispatch(clearCart());
+      sessionStorage.clear();
+      localStorage.clear();
 
       if (checkoutUrl) {
         window.location.href = checkoutUrl;
       } else {
-        navigate("/paymongo-gcash/success");
+        // navigate("/paymongo-gcash/success");
+        navigate("/orders/me");
       }
     }
 
