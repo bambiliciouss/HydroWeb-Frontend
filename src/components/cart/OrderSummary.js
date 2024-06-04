@@ -24,7 +24,7 @@ import socket from "../../socket";
 import swal from "sweetalert";
 import { DateTime } from "luxon";
 import { toast } from "react-toastify";
-import swal from "sweetalert";
+
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
