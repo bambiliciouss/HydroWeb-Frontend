@@ -115,7 +115,8 @@ function App() {
         <Route path="/" element={<Home />} />  <Route path="/about-us" element={<AboutUs />}/>
         <Route path="/Cards" element={<Cards />}/>
         <Route path="/contact-us" element={<ContactUs/>} />
-        
+
+        <Route path='/paymongo-gcash/:token/:id' element={<VerifyOrderDetails />} exact='true' />      
         <Route path="/login" element={<Login />} exact="true" />
         <Route path="/register" element={<Register />} exact="true" />
         <Route path="/admin/processing" element={<AdminProcessing />} exact="true" />
