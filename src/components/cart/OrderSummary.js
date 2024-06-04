@@ -49,6 +49,9 @@ const OrderSummary = () => {
         position: toast.POSITION.BOTTOM_CENTER,
       });
       dispatch(clearCart());
+      sessionStorage.clear();
+      localStorage.clear();
+
       if (checkoutUrl) {
         window.location.href = checkoutUrl;
       } else {
@@ -157,8 +160,8 @@ const OrderSummary = () => {
       console.log("order", order);
 
       // dispatch(clearCart());
-      sessionStorage.clear();
-      localStorage.clear();
+      // sessionStorage.clear();
+      // localStorage.clear();
 
       //navigate("/orders/me");
       //window.location.reload();
