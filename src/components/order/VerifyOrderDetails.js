@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Button, Container, Row, Col } from "reactstrap";
 import { verifyOrders, clearErrors } from "../../actions/orderActions";
 // import { clearCart } from "../../actions/cartActions";
-import { Button } from "reactstrap";
+
 const VerifyOrderDetails = () => {
   const dispatch = useDispatch();
   let { id, token } = useParams();
