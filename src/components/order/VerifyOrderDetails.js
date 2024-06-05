@@ -33,7 +33,7 @@ const VerifyOrderDetails = () => {
       <div className="col-6 mt-5 text-center">
         <img
           className="my-5 img-fluid d-block mx-auto"
-          src="/images/verify.png"
+          src="/images/success_icon.png"
           alt="Order Success"
           width="200"
           height="200"
@@ -42,7 +42,7 @@ const VerifyOrderDetails = () => {
           }}
         />
 
-        <h2>Payment Successful!</h2>
+        <h2>Online Payment Successful!</h2>
 
         <Button block color="info" onClick={() => navigate("/orders/me")}>
           View Orders
