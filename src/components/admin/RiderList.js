@@ -195,7 +195,7 @@ const RiderList = (args) => {
 
     dispatch(newrider(formData));
     toggle();
-    window.location.reload();
+    //window.location.reload();
 
     swal("New Rider Added Successfully", "", "success");
   };
