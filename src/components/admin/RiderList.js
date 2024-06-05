@@ -55,9 +55,6 @@ import { CREATE_STORESTAFF_RESET } from "../../constants/storestaffConstants";
 import { getStoreDetails } from "actions/storebranchActions";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 const RiderList = (args) => {
-
-
-
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
@@ -200,11 +197,7 @@ const RiderList = (args) => {
     toggle();
     window.location.reload();
 
-    // swal(
-    //   "An email sent to your employee's email account, please verify",
-    //   "",
-    //   "success"
-    // );
+    swal("New Rider Added Successfully", "", "success");
   };
 
   const onChange = (e) => {
@@ -347,8 +340,9 @@ const RiderList = (args) => {
               onClick={() => deleteUserHandler(user._id)}>
               <i className="fa fa-trash"></i>
             </button>
-            <button className="btn btn-info py-1 px-2 ml-2"
-             onClick={() => navigate(`/rider/location/${user._id}`)}>
+            <button
+              className="btn btn-info py-1 px-2 ml-2"
+              onClick={() => navigate(`/rider/location/${user._id}`)}>
               View Rider Location
             </button>
           </Fragment>
