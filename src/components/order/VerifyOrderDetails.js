@@ -44,7 +44,7 @@ const VerifyOrderDetails = () => {
 
         <h2>Payment Successful!</h2>
 
-        <Button block color="info" onClick={navigate("/ordersummary")}>
+        <Button block color="info" onClick={navigate("/orders/me")}>
           View Orders
         </Button>
       </div>
