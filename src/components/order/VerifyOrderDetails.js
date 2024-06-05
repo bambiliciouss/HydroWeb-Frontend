@@ -4,9 +4,11 @@ import { useDispatch } from "react-redux";
 import { Button, Container, Row, Col } from "reactstrap";
 import { verifyOrders, clearErrors } from "../../actions/orderActions";
 // import { clearCart } from "../../actions/cartActions";
+import { useNavigate } from "react-router-dom";
 
 const VerifyOrderDetails = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   let { id, token } = useParams();
 
   useEffect(() => {
