@@ -107,15 +107,15 @@ const OrderList = () => {
 
     sortedOrders.forEach((order) => {
       // Find the latest order status
-      const latestOrderStatus = order.orderStatus.reduce((latest, status) => {
-        if (!latest.datedAt || status.datedAt > latest.datedAt) {
-          return status;
-        }
-        return latest;
-      }, {});
+      // const latestOrderStatus = order.orderStatus.reduce((latest, status) => {
+      //   if (!latest.datedAt || status.datedAt > latest.datedAt) {
+      //     return status;
+      //   }
+      //   return latest;
+      // }, {});
 
       let statusBadgeColor = "";
-      switch (latestOrderStatus.orderLevel) {
+      switch (order.orderStatus.orderLevel) {
         case "Order Placed":
           statusBadgeColor = "secondary";
           break;
